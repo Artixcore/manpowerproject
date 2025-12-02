@@ -231,7 +231,15 @@ create_virtual_host() {
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
+        
+        # Enable directory indexing for debugging (disable in production)
+        # Options +Indexes
     </Directory>
+    
+    # Ensure CSS and JS files are served with correct MIME types
+    <LocationMatch "\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </LocationMatch>
     
     # Error and access logs
     ErrorLog \${APACHE_LOG_DIR}/easterntopcompanys_error.log
@@ -241,10 +249,111 @@ create_virtual_host() {
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set X-XSS-Protection "1; mode=block"
+    
+    # MIME types (ensure CSS and JS are served correctly)
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType application/json .json
 </VirtualHost>
 EOF
     
     print_status "Virtual host configuration created"
+}
+
+# Function to ensure MIME types are configured
+configure_mime_types() {
+    print_status "Configuring MIME types for CSS and JS files..."
+    
+    # Check if mime.types file exists and add CSS/JS if needed
+    MIME_TYPES_FILE="/etc/apache2/mime.types"
+    
+    if [ -f "$MIME_TYPES_FILE" ]; then
+        # Check if CSS MIME type exists
+        if ! grep -q "text/css" "$MIME_TYPES_FILE" 2>/dev/null; then
+            echo "text/css                    css" >> "$MIME_TYPES_FILE"
+            print_status "Added CSS MIME type"
+        fi
+        
+        # Check if JS MIME type exists
+        if ! grep -q "application/javascript" "$MIME_TYPES_FILE" 2>/dev/null; then
+            echo "application/javascript      js" >> "$MIME_TYPES_FILE"
+            print_status "Added JavaScript MIME type"
+        fi
+    fi
+    
+    # Enable mime module if not already enabled
+    a2enmod mime 2>/dev/null || true
+    
+    print_status "MIME types configured"
+}
+
+# Function to verify website files
+verify_website_files() {
+    print_status "Verifying website files..."
+    
+    local errors=0
+    
+    # Check if index.html exists
+    if [ ! -f "$WEB_ROOT/index.html" ]; then
+        print_error "index.html not found in $WEB_ROOT"
+        errors=$((errors + 1))
+    else
+        print_status "✓ index.html found"
+    fi
+    
+    # Check if CSS directory exists
+    if [ ! -d "$WEB_ROOT/css" ]; then
+        print_error "CSS directory not found in $WEB_ROOT"
+        errors=$((errors + 1))
+    else
+        print_status "✓ CSS directory found"
+        
+        # Check if style.css exists
+        if [ ! -f "$WEB_ROOT/css/style.css" ]; then
+            print_error "css/style.css not found"
+            errors=$((errors + 1))
+        else
+            print_status "✓ css/style.css found"
+            
+            # Check file permissions
+            if [ ! -r "$WEB_ROOT/css/style.css" ]; then
+                print_warning "css/style.css is not readable, fixing permissions..."
+                chmod 644 "$WEB_ROOT/css/style.css"
+                chown www-data:www-data "$WEB_ROOT/css/style.css"
+            fi
+        fi
+    fi
+    
+    # Check if JS directory exists
+    if [ ! -d "$WEB_ROOT/js" ]; then
+        print_error "JS directory not found in $WEB_ROOT"
+        errors=$((errors + 1))
+    else
+        print_status "✓ JS directory found"
+        
+        # Check if main.js exists
+        if [ ! -f "$WEB_ROOT/js/main.js" ]; then
+            print_error "js/main.js not found"
+            errors=$((errors + 1))
+        else
+            print_status "✓ js/main.js found"
+            
+            # Check file permissions
+            if [ ! -r "$WEB_ROOT/js/main.js" ]; then
+                print_warning "js/main.js is not readable, fixing permissions..."
+                chmod 644 "$WEB_ROOT/js/main.js"
+                chown www-data:www-data "$WEB_ROOT/js/main.js"
+            fi
+        fi
+    fi
+    
+    if [ $errors -gt 0 ]; then
+        print_error "Found $errors file(s) missing. Please check the deployment."
+        return 1
+    else
+        print_status "All website files verified successfully"
+        return 0
+    fi
 }
 
 # Function to enable site and disable default
@@ -365,6 +474,24 @@ chown -R www-data:www-data "$WEB_ROOT"
 find "$WEB_ROOT" -type d -exec chmod 755 {} \;
 find "$WEB_ROOT" -type f -exec chmod 644 {} \;
 
+# Verify critical files exist
+if [ ! -f "$WEB_ROOT/index.html" ]; then
+    log_message "ERROR: index.html missing after update!"
+    exit 1
+fi
+
+if [ ! -f "$WEB_ROOT/css/style.css" ]; then
+    log_message "ERROR: css/style.css missing after update!"
+    exit 1
+fi
+
+if [ ! -f "$WEB_ROOT/js/main.js" ]; then
+    log_message "ERROR: js/main.js missing after update!"
+    exit 1
+fi
+
+log_message "All critical files verified"
+
 # Restart Apache
 log_message "Restarting Apache2..."
 systemctl restart apache2 >> "$LOG_FILE" 2>&1
@@ -463,6 +590,13 @@ display_completion() {
     echo ""
     echo "To restart Apache2: sudo systemctl restart apache2"
     echo ""
+    echo "If CSS/JS files are not loading:"
+    echo "  1. Run fix script: sudo bash fix-css-issue.sh"
+    echo "  2. Verify files exist: ls -la $WEB_ROOT/css/"
+    echo "  3. Check file permissions: ls -l $WEB_ROOT/css/style.css"
+    echo "  4. Test CSS access: curl http://localhost/css/style.css"
+    echo "  5. Clear browser cache and hard refresh (Ctrl+Shift+R)"
+    echo ""
 }
 
 # Main execution
@@ -480,9 +614,11 @@ main() {
     update_system
     install_packages
     enable_modules
+    configure_mime_types
     create_web_directory
     copy_website_files
     set_permissions
+    verify_website_files
     create_virtual_host
     enable_site
     configure_firewall
