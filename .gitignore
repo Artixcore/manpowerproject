@@ -20,6 +20,8 @@ pip-delete-this-directory.txt
 pdf_extracted_data.json
 pdf_design_elements.json
 pdf_full_text.txt
+pdf_complete_extraction.json
+pdf_complete_text.txt
 
 # IDE and Editor files
 .vscode/
