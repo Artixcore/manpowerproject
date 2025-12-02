@@ -13,6 +13,7 @@ NC='\033[0m' # No Color
 
 # Configuration variables
 DOMAIN_NAME="easterntopcompanys.com"
+SERVER_IP="13.201.0.239"
 WEB_ROOT="/var/www/easterntopcompanys"
 SITE_CONFIG="/etc/apache2/sites-available/easterntopcompanys.conf"
 CURRENT_DIR=$(pwd)
@@ -48,11 +49,120 @@ check_root() {
     fi
 }
 
+# Function to clean Apache and system caches
+clean_caches() {
+    print_status "Cleaning caches..."
+    
+    # Clear Apache cache
+    if [ -d "/var/cache/apache2" ]; then
+        rm -rf /var/cache/apache2/*
+        print_status "Apache cache cleared"
+    fi
+    
+    # Clear system package cache
+    apt-get clean -y
+    apt-get autoclean -y
+    print_status "System package cache cleared"
+    
+    # Clear temporary files
+    if [ -d "/tmp" ]; then
+        find /tmp -type f -atime +7 -delete 2>/dev/null || true
+        print_status "Old temporary files cleaned"
+    fi
+    
+    # Clear browser cache directories if they exist
+    if [ -d "/var/cache/apache2/mod_cache_disk" ]; then
+        rm -rf /var/cache/apache2/mod_cache_disk/*
+        print_status "Apache mod_cache cleared"
+    fi
+    
+    print_status "All caches cleaned successfully"
+}
+
+# Function to clean and rotate Apache logs
+clean_logs() {
+    print_status "Cleaning and rotating Apache logs..."
+    
+    # Backup and truncate Apache error logs
+    if [ -f "/var/log/apache2/error.log" ]; then
+        if [ -s "/var/log/apache2/error.log" ]; then
+            cp /var/log/apache2/error.log /var/log/apache2/error.log.old.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            truncate -s 0 /var/log/apache2/error.log
+            print_status "Apache error log rotated"
+        fi
+    fi
+    
+    # Backup and truncate Apache access logs
+    if [ -f "/var/log/apache2/access.log" ]; then
+        if [ -s "/var/log/apache2/access.log" ]; then
+            cp /var/log/apache2/access.log /var/log/apache2/access.log.old.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            truncate -s 0 /var/log/apache2/access.log
+            print_status "Apache access log rotated"
+        fi
+    fi
+    
+    # Clean site-specific logs
+    if [ -f "/var/log/apache2/easterntopcompanys_error.log" ]; then
+        if [ -s "/var/log/apache2/easterntopcompanys_error.log" ]; then
+            cp /var/log/apache2/easterntopcompanys_error.log /var/log/apache2/easterntopcompanys_error.log.old.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            truncate -s 0 /var/log/apache2/easterntopcompanys_error.log
+            print_status "Site error log rotated"
+        fi
+    fi
+    
+    if [ -f "/var/log/apache2/easterntopcompanys_access.log" ]; then
+        if [ -s "/var/log/apache2/easterntopcompanys_access.log" ]; then
+            cp /var/log/apache2/easterntopcompanys_access.log /var/log/apache2/easterntopcompanys_access.log.old.$(date +%Y%m%d_%H%M%S) 2>/dev/null || true
+            truncate -s 0 /var/log/apache2/easterntopcompanys_access.log
+            print_status "Site access log rotated"
+        fi
+    fi
+    
+    # Remove old log files (older than 30 days)
+    find /var/log/apache2 -name "*.log.old.*" -type f -mtime +30 -delete 2>/dev/null || true
+    print_status "Old log files removed"
+    
+    print_status "Log cleanup completed successfully"
+}
+
+# Function to clean old backup files and directories
+clean_old_files() {
+    print_status "Cleaning old backup files and directories..."
+    
+    # Remove old web root backups
+    if [ -d "$(dirname $WEB_ROOT)" ]; then
+        find "$(dirname $WEB_ROOT)" -maxdepth 1 -type d -name "${WEB_ROOT##*/}.backup.*" -mtime +7 -exec rm -rf {} \; 2>/dev/null || true
+        print_status "Old web root backups removed"
+    fi
+    
+    # Remove old Apache configuration backups
+    if [ -d "/etc/apache2/sites-available" ]; then
+        find /etc/apache2/sites-available -name "*.conf.bak" -type f -mtime +30 -delete 2>/dev/null || true
+        find /etc/apache2/sites-available -name "*.conf.old" -type f -mtime +30 -delete 2>/dev/null || true
+        print_status "Old Apache config backups removed"
+    fi
+    
+    # Remove old update script backups if any
+    if [ -f "$UPDATE_SCRIPT.bak" ]; then
+        rm -f "$UPDATE_SCRIPT.bak" 2>/dev/null || true
+        print_status "Old update script backups removed"
+    fi
+    
+    # Clean old system backups
+    if [ -d "/var/backups" ]; then
+        find /var/backups -name "*.old" -type f -mtime +30 -delete 2>/dev/null || true
+        print_status "Old system backups cleaned"
+    fi
+    
+    print_status "Old files cleanup completed successfully"
+}
+
 # Function to update system packages
 update_system() {
     print_status "Updating system packages..."
     apt-get update -y
     apt-get upgrade -y
+    apt-get autoremove -y
     print_status "System packages updated successfully"
 }
 
@@ -96,7 +206,12 @@ enable_modules() {
     a2enmod rewrite
     a2enmod headers
     a2enmod ssl
-    print_status "Apache2 modules enabled"
+    a2enmod deflate
+    a2enmod expires
+    a2enmod cache
+    a2enmod cache_disk
+    a2enmod mime
+    print_status "Apache2 modules enabled (rewrite, headers, ssl, deflate, expires, cache)"
 }
 
 # Function to create web directory
@@ -220,25 +335,61 @@ create_virtual_host() {
     print_status "Creating Apache virtual host configuration..."
     
     cat > $SITE_CONFIG <<EOF
-<VirtualHost *:80>
+<VirtualHost $SERVER_IP:80>
     ServerName $DOMAIN_NAME
     ServerAlias www.$DOMAIN_NAME
     ServerAdmin webmaster@$DOMAIN_NAME
     
     DocumentRoot $WEB_ROOT
     
+    # Performance: Enable compression
+    <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+        BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    </IfModule>
+    
+    # Performance: Browser caching
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresByType image/jpg "access plus 1 year"
+        ExpiresByType image/jpeg "access plus 1 year"
+        ExpiresByType image/gif "access plus 1 year"
+        ExpiresByType image/png "access plus 1 year"
+        ExpiresByType image/svg+xml "access plus 1 year"
+        ExpiresByType image/x-icon "access plus 1 year"
+        ExpiresByType text/css "access plus 1 month"
+        ExpiresByType application/javascript "access plus 1 month"
+        ExpiresByType application/json "access plus 1 month"
+        ExpiresByType text/html "access plus 1 hour"
+    </IfModule>
+    
     <Directory $WEB_ROOT>
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
         
-        # Enable directory indexing for debugging (disable in production)
-        # Options +Indexes
+        # Performance: Enable directory caching
+        <IfModule mod_cache.c>
+            CacheEnable disk /
+            CacheRoot /var/cache/apache2/mod_cache_disk
+            CacheDefaultExpire 3600
+            CacheMaxExpire 86400
+            CacheLastModifiedFactor 0.5
+        </IfModule>
     </Directory>
     
-    # Ensure CSS and JS files are served with correct MIME types
-    <LocationMatch "\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
-        Header set Cache-Control "public, max-age=31536000"
+    # Static files caching with long expiration
+    <LocationMatch "\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        Header unset ETag
+        FileETag None
+    </LocationMatch>
+    
+    # HTML files caching
+    <LocationMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
     </LocationMatch>
     
     # Error and access logs
@@ -249,15 +400,26 @@ create_virtual_host() {
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Cloudflare compatibility headers
+    Header always set CF-Connecting-IP "%{CF-Connecting-IP}i"
+    Header always set CF-Ray "%{CF-Ray}i"
     
     # MIME types (ensure CSS and JS are served correctly)
     AddType text/css .css
     AddType application/javascript .js
     AddType application/json .json
+    
+    # Performance: Disable server signature
+    ServerSignature Off
+    
+    # Performance: Request timeout
+    Timeout 30
 </VirtualHost>
 EOF
     
-    print_status "Virtual host configuration created"
+    print_status "Virtual host configuration created with performance optimizations"
 }
 
 # Function to ensure MIME types are configured
@@ -285,6 +447,104 @@ configure_mime_types() {
     a2enmod mime 2>/dev/null || true
     
     print_status "MIME types configured"
+}
+
+# Function to configure Apache listener on specific IP
+configure_apache_listener() {
+    print_status "Configuring Apache to listen on IP: $SERVER_IP"
+    
+    APACHE_PORTS_FILE="/etc/apache2/ports.conf"
+    
+    # Backup original ports.conf
+    if [ -f "$APACHE_PORTS_FILE" ]; then
+        cp "$APACHE_PORTS_FILE" "${APACHE_PORTS_FILE}.bak.$(date +%Y%m%d_%H%M%S)" 2>/dev/null || true
+    fi
+    
+    # Update Listen directive to bind to specific IP
+    if [ -f "$APACHE_PORTS_FILE" ]; then
+        # Comment out existing Listen directives
+        sed -i 's/^Listen /#Listen /g' "$APACHE_PORTS_FILE" 2>/dev/null || true
+        
+        # Add new Listen directive for specific IP
+        if ! grep -q "Listen $SERVER_IP:80" "$APACHE_PORTS_FILE" 2>/dev/null; then
+            echo "" >> "$APACHE_PORTS_FILE"
+            echo "# Listen on specific IP address" >> "$APACHE_PORTS_FILE"
+            echo "Listen $SERVER_IP:80" >> "$APACHE_PORTS_FILE"
+            print_status "Apache configured to listen on $SERVER_IP:80"
+        fi
+    fi
+    
+    print_status "Apache listener configuration completed"
+}
+
+# Function to optimize Apache performance settings
+optimize_apache_performance() {
+    print_status "Optimizing Apache performance settings..."
+    
+    APACHE_CONF="/etc/apache2/apache2.conf"
+    
+    # Backup original config
+    if [ -f "$APACHE_CONF" ]; then
+        cp "$APACHE_CONF" "${APACHE_CONF}.bak.$(date +%Y%m%d_%H%M%S)" 2>/dev/null || true
+    fi
+    
+    if [ -f "$APACHE_CONF" ]; then
+        # Update timeout settings
+        if grep -q "^Timeout" "$APACHE_CONF" 2>/dev/null; then
+            sed -i 's/^Timeout .*/Timeout 30/' "$APACHE_CONF" 2>/dev/null || true
+        else
+            echo "Timeout 30" >> "$APACHE_CONF"
+        fi
+        
+        # Update KeepAlive settings
+        if grep -q "^KeepAlive" "$APACHE_CONF" 2>/dev/null; then
+            sed -i 's/^KeepAlive .*/KeepAlive On/' "$APACHE_CONF" 2>/dev/null || true
+        else
+            echo "KeepAlive On" >> "$APACHE_CONF"
+        fi
+        
+        if grep -q "^MaxKeepAliveRequests" "$APACHE_CONF" 2>/dev/null; then
+            sed -i 's/^MaxKeepAliveRequests .*/MaxKeepAliveRequests 100/' "$APACHE_CONF" 2>/dev/null || true
+        else
+            echo "MaxKeepAliveRequests 100" >> "$APACHE_CONF"
+        fi
+        
+        if grep -q "^KeepAliveTimeout" "$APACHE_CONF" 2>/dev/null; then
+            sed -i 's/^KeepAliveTimeout .*/KeepAliveTimeout 5/' "$APACHE_CONF" 2>/dev/null || true
+        else
+            echo "KeepAliveTimeout 5" >> "$APACHE_CONF"
+        fi
+        
+        # Add performance optimizations if not present
+        if ! grep -q "# Performance optimizations" "$APACHE_CONF" 2>/dev/null; then
+            echo "" >> "$APACHE_CONF"
+            echo "# Performance optimizations" >> "$APACHE_CONF"
+            echo "RequestTimeout 30" >> "$APACHE_CONF"
+            echo "HostnameLookups Off" >> "$APACHE_CONF"
+            echo "ServerTokens Prod" >> "$APACHE_CONF"
+            echo "ServerSignature Off" >> "$APACHE_CONF"
+        fi
+        
+        print_status "Apache performance settings optimized"
+    fi
+    
+    # Configure MPM settings for better performance
+    MPM_CONF="/etc/apache2/mods-available/mpm_prefork.conf"
+    if [ -f "$MPM_CONF" ]; then
+        # Backup MPM config
+        cp "$MPM_CONF" "${MPM_CONF}.bak.$(date +%Y%m%d_%H%M%S)" 2>/dev/null || true
+        
+        # Optimize MPM settings
+        sed -i 's/^\(StartServers\).*/\1 5/' "$MPM_CONF" 2>/dev/null || true
+        sed -i 's/^\(MinSpareServers\).*/\1 5/' "$MPM_CONF" 2>/dev/null || true
+        sed -i 's/^\(MaxSpareServers\).*/\1 10/' "$MPM_CONF" 2>/dev/null || true
+        sed -i 's/^\(MaxRequestWorkers\).*/\1 150/' "$MPM_CONF" 2>/dev/null || true
+        sed -i 's/^\(MaxConnectionsPerChild\).*/\1 1000/' "$MPM_CONF" 2>/dev/null || true
+        
+        print_status "MPM performance settings optimized"
+    fi
+    
+    print_status "Apache performance optimization completed"
 }
 
 # Function to verify website files
@@ -557,8 +817,9 @@ display_completion() {
     echo -e "${GREEN}========================================${NC}"
     echo ""
     echo "Website is now available at:"
-    echo "  - http://$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4 2>/dev/null || echo 'your-server-ip')"
+    echo "  - http://$SERVER_IP"
     echo "  - http://$DOMAIN_NAME"
+    echo "  - http://www.$DOMAIN_NAME"
     echo ""
     echo "Website files location: $WEB_ROOT"
     echo "Apache configuration: $SITE_CONFIG"
@@ -584,17 +845,33 @@ display_completion() {
     fi
     
     echo ""
+    echo "Performance Optimizations Applied:"
+    echo "  - Gzip compression enabled"
+    echo "  - Browser caching configured (1 year for static files)"
+    echo "  - Apache timeout optimized (30 seconds)"
+    echo "  - KeepAlive enabled for faster connections"
+    echo "  - MPM settings optimized"
+    echo "  - Apache listening on IP: $SERVER_IP"
+    echo ""
+    echo "Cleanup Completed:"
+    echo "  - All caches cleared"
+    echo "  - Logs rotated"
+    echo "  - Old backup files removed"
+    echo ""
     echo "To view Apache logs:"
     echo "  - Error log: tail -f /var/log/apache2/easterntopcompanys_error.log"
     echo "  - Access log: tail -f /var/log/apache2/easterntopcompanys_access.log"
     echo ""
     echo "To restart Apache2: sudo systemctl restart apache2"
     echo ""
+    echo "To clean caches and logs manually:"
+    echo "  - Run cleanup: sudo bash -c 'source setup.sh && clean_caches && clean_logs && clean_old_files'"
+    echo ""
     echo "If CSS/JS files are not loading:"
     echo "  1. Run fix script: sudo bash fix-css-issue.sh"
     echo "  2. Verify files exist: ls -la $WEB_ROOT/css/"
     echo "  3. Check file permissions: ls -l $WEB_ROOT/css/style.css"
-    echo "  4. Test CSS access: curl http://localhost/css/style.css"
+    echo "  4. Test CSS access: curl http://$SERVER_IP/css/style.css"
     echo "  5. Clear browser cache and hard refresh (Ctrl+Shift+R)"
     echo ""
 }
@@ -610,11 +887,19 @@ main() {
     # Check if running as root
     check_root
     
+    # Clean up old files, caches, and logs first
+    print_status "Starting cleanup process..."
+    clean_old_files
+    clean_caches
+    clean_logs
+    
     # Execute setup steps
     update_system
     install_packages
     enable_modules
     configure_mime_types
+    configure_apache_listener
+    optimize_apache_performance
     create_web_directory
     copy_website_files
     set_permissions
@@ -622,6 +907,11 @@ main() {
     create_virtual_host
     enable_site
     configure_firewall
+    
+    # Clean caches again before restart
+    print_status "Final cleanup before restart..."
+    clean_caches
+    
     test_configuration
     restart_apache
     create_update_script

@@ -742,20 +742,116 @@ section {
 }
 
 /* ============================================
-   Equipment Section
+   Personnel Section
    ============================================ */
-.equipment-notice {
+.personnel-section {
     background-color: var(--bg-white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-sm);
-    text-align: center;
 }
 
-.equipment-notice p {
+.personnel-section table {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.personnel-section thead {
+    background-color: var(--primary-blue);
+    color: var(--text-white);
+}
+
+.personnel-section thead th {
+    font-weight: var(--font-weight-semibold);
+    padding: 15px;
+    border: none;
+}
+
+.personnel-section tbody tr {
+    transition: all 0.3s ease;
+}
+
+.personnel-section tbody tr:hover {
+    background-color: var(--light-blue);
+    transform: scale(1.01);
+}
+
+.personnel-section tbody td {
+    padding: 12px 15px;
+    border-color: var(--border-color);
+    font-size: 15px;
+}
+
+/* ============================================
+   Principles Section
+   ============================================ */
+.principles-section {
+    background-color: var(--bg-light);
+}
+
+.principles-section ul li {
+    margin-bottom: 15px;
     font-size: 16px;
-    color: var(--text-medium);
-    margin: 0;
+    line-height: 1.8;
+}
+
+/* ============================================
+   Civil Construction Section
+   ============================================ */
+.civil-construction-section {
+    background-color: var(--bg-white);
+}
+
+.civil-construction-section ul li {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+/* ============================================
+   Electrical Construction Section
+   ============================================ */
+.electrical-construction-section {
+    background-color: var(--bg-light);
+}
+
+.electrical-construction-section ul li {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+/* ============================================
+   Clients Section
+   ============================================ */
+.clients-section {
+    background-color: var(--bg-white);
+}
+
+.clients-section .service-card {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   Scrap Business Section
+   ============================================ */
+.scrap-business-section {
+    background-color: var(--bg-light);
+}
+
+/* ============================================
+   Equipment Section
+   ============================================ */
+.equipment-section ul li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.equipment-section ul li i {
+    margin-top: 3px;
+    flex-shrink: 0;
 }
 
 /* ============================================
@@ -1380,5 +1476,14 @@ section {
     
     .project-title {
         font-size: 24px;
+    }
+    
+    .personnel-section table {
+        font-size: 14px;
+    }
+    
+    .personnel-section thead th,
+    .personnel-section tbody td {
+        padding: 10px;
     }
 }
