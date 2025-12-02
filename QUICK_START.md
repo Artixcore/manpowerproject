@@ -40,14 +40,14 @@ The `setup.sh` script automatically:
 **Website not loading?**
 ```bash
 sudo systemctl status apache2
-sudo tail -f /var/log/apache2/maalihermes_error.log
+sudo tail -f /var/log/apache2/easterntopcompanys_error.log
 ```
 
 **Need to update files?**
 ```bash
-sudo cp index.html /var/www/maalihermes/
-sudo cp -r css/ /var/www/maalihermes/
-sudo cp -r js/ /var/www/maalihermes/
+sudo cp index.html /var/www/easterntopcompanys/
+sudo cp -r css/ /var/www/easterntopcompanys/
+sudo cp -r js/ /var/www/easterntopcompanys/
 sudo systemctl reload apache2
 ```
 

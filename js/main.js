@@ -256,7 +256,7 @@
         // ============================================
         // Console Log (for debugging)
         // ============================================
-        console.log('Maali Hermes Website - JavaScript Loaded Successfully');
+        console.log('Eastern Top Companys Website - JavaScript Loaded Successfully');
     });
 
 })();

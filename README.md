@@ -1,6 +1,6 @@
-# Maali Hermes General Contracting Website
+# Eastern Top Companys Website
 
-A responsive single-page website clone of Maali Hermes General Contracting Est., built with Bootstrap 5.3.
+A responsive single-page website for Eastern Top Companys, built with Bootstrap 5.3.
 
 ## Features
 
@@ -103,5 +103,5 @@ This project is a clone/recreation for educational purposes.
 
 ## Contact
 
-For the original website, visit: https://www.maalihermes.com/
+For more information, visit: https://www.easterntopcompanys.com/
 

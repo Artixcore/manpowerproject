@@ -1,6 +1,6 @@
-# Deployment Guide - Maali Hermes Website on AWS Lightsail
+# Deployment Guide - Eastern Top Companys Website on AWS Lightsail
 
-This guide explains how to deploy the Maali Hermes website on an AWS Lightsail instance using the automated setup script.
+This guide explains how to deploy the Eastern Top Companys website on an AWS Lightsail instance using the automated setup script.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ The script will automatically:
 - ✅ Update system packages
 - ✅ Install Apache2 web server
 - ✅ Configure Apache2 virtual host
-- ✅ Copy website files to `/var/www/maalihermes`
+- ✅ Copy website files to `/var/www/easterntopcompanys`
 - ✅ Set proper permissions
 - ✅ Enable and start Apache2 service
 - ✅ Configure firewall rules
@@ -97,10 +97,10 @@ sudo certbot --apache -d yourdomain.com -d www.yourdomain.com
 ## File Locations
 
 After deployment:
-- **Website files**: `/var/www/maalihermes/`
-- **Apache config**: `/etc/apache2/sites-available/maalihermes.conf`
-- **Error logs**: `/var/log/apache2/maalihermes_error.log`
-- **Access logs**: `/var/log/apache2/maalihermes_access.log`
+- **Website files**: `/var/www/easterntopcompanys/`
+- **Apache config**: `/etc/apache2/sites-available/easterntopcompanys.conf`
+- **Error logs**: `/var/log/apache2/easterntopcompanys_error.log`
+- **Access logs**: `/var/log/apache2/easterntopcompanys_access.log`
 
 ## Useful Commands
 
@@ -116,12 +116,12 @@ sudo systemctl restart apache2
 
 ### View Error Logs
 ```bash
-sudo tail -f /var/log/apache2/maalihermes_error.log
+sudo tail -f /var/log/apache2/easterntopcompanys_error.log
 ```
 
 ### View Access Logs
 ```bash
-sudo tail -f /var/log/apache2/maalihermes_access.log
+sudo tail -f /var/log/apache2/easterntopcompanys_access.log
 ```
 
 ### Test Apache Configuration
@@ -152,21 +152,21 @@ sudo systemctl reload apache2
 
 3. **Check Apache Logs**:
    ```bash
-   sudo tail -50 /var/log/apache2/maalihermes_error.log
+   sudo tail -50 /var/log/apache2/easterntopcompanys_error.log
    ```
-
+   
 4. **Verify Files Exist**:
    ```bash
-   ls -la /var/www/maalihermes/
+   ls -la /var/www/easterntopcompanys/
    ```
 
 ### Permission Issues
 
 If you see permission errors:
 ```bash
-sudo chown -R www-data:www-data /var/www/maalihermes
-sudo chmod -R 755 /var/www/maalihermes
-sudo find /var/www/maalihermes -type f -exec chmod 644 {} \;
+sudo chown -R www-data:www-data /var/www/easterntopcompanys
+sudo chmod -R 755 /var/www/easterntopcompanys
+sudo find /var/www/easterntopcompanys -type f -exec chmod 644 {} \;
 ```
 
 ### Port Already in Use
@@ -183,14 +183,14 @@ To update website files after initial deployment:
 
 ```bash
 # Copy new files
-sudo cp index.html /var/www/maalihermes/
-sudo cp -r css/ /var/www/maalihermes/
-sudo cp -r js/ /var/www/maalihermes/
+sudo cp index.html /var/www/easterntopcompanys/
+sudo cp -r css/ /var/www/easterntopcompanys/
+sudo cp -r js/ /var/www/easterntopcompanys/
 
 # Set permissions
-sudo chown -R www-data:www-data /var/www/maalihermes
-sudo chmod -R 755 /var/www/maalihermes
-sudo find /var/www/maalihermes -type f -exec chmod 644 {} \;
+sudo chown -R www-data:www-data /var/www/easterntopcompanys
+sudo chmod -R 755 /var/www/easterntopcompanys
+sudo find /var/www/easterntopcompanys -type f -exec chmod 644 {} \;
 
 # Reload Apache (no downtime)
 sudo systemctl reload apache2
@@ -213,12 +213,12 @@ sudo systemctl reload apache2
 
 3. **Enable HTTPS**: Use Let's Encrypt (see above)
 
-4. **Regular Backups**: Backup `/var/www/maalihermes/` regularly
+4. **Regular Backups**: Backup `/var/www/easterntopcompanys/` regularly
 
 ## Support
 
 For issues or questions:
-- Check Apache error logs: `/var/log/apache2/maalihermes_error.log`
+- Check Apache error logs: `/var/log/apache2/easterntopcompanys_error.log`
 - Verify configuration: `sudo apache2ctl configtest`
 - Check system resources: `htop` or `free -h`
 
