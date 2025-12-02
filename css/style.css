@@ -1,13 +1,15 @@
 /* Eastern Top Companys Website - Complete Redesign Matching Reference Sites */
 
 /* ============================================
-   CSS Variables - Professional Corporate Design
+   CSS Variables - Maali Hermes Design Theme
    ============================================ */
 :root {
-    /* Primary Colors */
-    --primary-blue: #0066cc;
-    --dark-blue: #004499;
-    --light-blue: #e6f2ff;
+    /* Primary Colors - Orange & Green */
+    --primary-orange: #FF6B35;
+    --primary-green: #2ECC71;
+    --dark-orange: #E55A2B;
+    --light-orange: #FFF4F0;
+    --light-green: #E8F8F5;
     
     /* Text Colors */
     --text-dark: #333333;
@@ -28,6 +30,7 @@
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
@@ -86,8 +89,8 @@ section {
 .top-bar {
     background-color: var(--bg-white);
     border-bottom: 1px solid var(--border-color);
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 8px 0;
+    font-size: 13px;
 }
 
 .top-bar-content {
@@ -117,7 +120,7 @@ section {
 }
 
 .topbar-info a:hover {
-    color: var(--primary-blue);
+    color: var(--primary-orange);
 }
 
 .topbar-info i {
@@ -133,20 +136,20 @@ section {
 }
 
 .social-links a {
-    color: var(--text-medium);
-    font-size: 18px;
+    color: var(--text-light);
+    font-size: 16px;
     transition: color 0.3s ease;
     display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
     text-align: center;
     border-radius: 50%;
 }
 
 .social-links a:hover {
-    color: var(--primary-blue);
-    background-color: var(--light-blue);
+    color: var(--primary-orange);
+    background-color: var(--light-orange);
 }
 
 /* ============================================
@@ -154,7 +157,7 @@ section {
    ============================================ */
 .header-area {
     background-color: var(--bg-white);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -166,18 +169,63 @@ section {
 }
 
 .navbar {
-    padding: 15px 0;
+    padding: 12px 0;
 }
 
 .navbar-brand {
-    font-size: 20px;
-    font-weight: var(--font-weight-bold);
-    color: var(--primary-blue) !important;
     text-decoration: none;
+    padding: 0;
 }
 
-.logo-text {
-    color: var(--primary-blue);
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-green) 100%);
+    border-radius: 8px;
+}
+
+.logo-h {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-white);
+    font-family: var(--font-serif);
+}
+
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-arabic {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-orange);
+    line-height: 1.2;
+}
+
+.logo-english {
+    font-size: 22px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-dark);
+    font-family: var(--font-serif);
+    line-height: 1.2;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    color: var(--text-medium);
+    font-family: var(--font-primary);
+    line-height: 1.2;
+    margin-top: 2px;
 }
 
 .navbar-nav {
@@ -201,7 +249,7 @@ section {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: var(--primary-blue);
+    background-color: var(--primary-orange);
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -213,7 +261,7 @@ section {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-blue) !important;
+    color: var(--primary-orange) !important;
 }
 
 .dropdown-menu {
@@ -232,13 +280,13 @@ section {
 }
 
 .dropdown-item:hover {
-    background-color: var(--bg-light);
-    color: var(--primary-blue);
+    background-color: var(--light-orange);
+    color: var(--primary-orange);
     padding-left: 25px;
 }
 
 .get-quote-btn {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-orange);
     border: none;
     color: var(--text-white);
     padding: 10px 25px;
@@ -252,7 +300,7 @@ section {
 }
 
 .get-quote-btn:hover {
-    background-color: var(--dark-blue);
+    background-color: var(--dark-orange);
     color: var(--text-white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -288,20 +336,37 @@ section {
 .hero-slide {
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-start;
     background-size: cover;
     background-position: center;
     position: relative;
+    padding-bottom: 80px;
+}
+
+.hero-content-left {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    max-width: 600px;
+    border-left: 4px solid var(--primary-orange);
+}
+
+.hero-label {
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    opacity: 0.9;
 }
 
 .hero-title {
-    font-size: 56px;
-    font-weight: var(--font-weight-extrabold);
+    font-size: 42px;
+    font-weight: var(--font-weight-bold);
     color: var(--text-white);
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    line-height: 1.2;
+    margin-bottom: 0;
+    line-height: 1.3;
 }
 
 .hero-subtitle {
@@ -322,7 +387,7 @@ section {
 
 .hero-buttons .btn-light {
     background-color: var(--text-white);
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     border: none;
 }
 
@@ -340,8 +405,46 @@ section {
 
 .hero-buttons .btn-outline-light:hover {
     background-color: var(--text-white);
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     transform: translateY(-2px);
+}
+
+.hero-carousel-control {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.carousel-control-prev.hero-carousel-control {
+    left: 30px;
+}
+
+.carousel-control-next.hero-carousel-control {
+    right: 30px;
+}
+
+.hero-carousel-control:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-control-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-carousel-control i {
+    color: var(--text-white);
+    font-size: 24px;
 }
 
 .carousel-control-prev,
@@ -372,7 +475,7 @@ section {
 
 .carousel-control-prev i,
 .carousel-control-next i {
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     font-size: 24px;
 }
 
@@ -406,7 +509,7 @@ section {
 .section-divider {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--dark-blue));
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-green));
     margin: 20px auto 40px;
     border-radius: 2px;
 }
@@ -441,7 +544,7 @@ section {
 }
 
 .about-content strong {
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -488,7 +591,7 @@ section {
 .organogram-card .card-title {
     font-size: 12px;
     font-weight: var(--font-weight-bold);
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -503,7 +606,7 @@ section {
 }
 
 .president-card {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-green) 100%);
     border: none;
     color: var(--text-white);
     padding: 35px 40px;
@@ -525,7 +628,7 @@ section {
 }
 
 .manager-card {
-    border-color: var(--primary-blue);
+    border-color: var(--primary-orange);
     border-width: 3px;
 }
 
@@ -551,7 +654,7 @@ section {
 .vision-box,
 .mission-box {
     background-color: var(--bg-white);
-    border-left: 5px solid var(--primary-blue);
+    border-left: 5px solid var(--primary-orange);
     padding: 40px 35px;
     height: 100%;
     border-radius: 8px;
@@ -568,7 +671,7 @@ section {
 
 .box-icon {
     font-size: 48px;
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     margin-bottom: 20px;
 }
 
@@ -576,7 +679,7 @@ section {
 .mission-box .box-title {
     font-size: 24px;
     font-weight: var(--font-weight-bold);
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -607,7 +710,7 @@ section {
     height: 100%;
     text-align: center;
     transition: all 0.3s ease;
-    border-top: 4px solid var(--primary-blue);
+    border-top: 4px solid var(--primary-orange);
 }
 
 .value-card:hover {
@@ -617,7 +720,7 @@ section {
 
 .value-icon {
     font-size: 48px;
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     margin-bottom: 20px;
 }
 
@@ -642,7 +745,7 @@ section {
    Services Section
    ============================================ */
 .service-main-card {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-green) 100%);
     padding: 60px 40px;
     text-align: center;
     border-radius: 10px;
@@ -690,7 +793,7 @@ section {
 
 .service-icon {
     font-size: 48px;
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     margin-bottom: 20px;
 }
 
@@ -718,7 +821,7 @@ section {
 .project-brand {
     font-size: 56px;
     font-weight: var(--font-weight-bold);
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 10px;
@@ -756,7 +859,7 @@ section {
 }
 
 .personnel-section thead {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-orange);
     color: var(--text-white);
 }
 
@@ -771,7 +874,7 @@ section {
 }
 
 .personnel-section tbody tr:hover {
-    background-color: var(--light-blue);
+    background-color: var(--light-orange);
     transform: scale(1.01);
 }
 
@@ -794,6 +897,10 @@ section {
     line-height: 1.8;
 }
 
+.principles-section ul li i {
+    color: var(--primary-orange);
+}
+
 /* ============================================
    Civil Construction Section
    ============================================ */
@@ -806,6 +913,14 @@ section {
     font-size: 15px;
 }
 
+.civil-construction-section ul li i {
+    color: var(--primary-orange);
+}
+
+.civil-construction-section h3 {
+    color: var(--primary-orange);
+}
+
 /* ============================================
    Electrical Construction Section
    ============================================ */
@@ -816,6 +931,10 @@ section {
 .electrical-construction-section ul li {
     margin-bottom: 12px;
     font-size: 15px;
+}
+
+.electrical-construction-section ul li i {
+    color: var(--primary-orange);
 }
 
 /* ============================================
@@ -852,6 +971,7 @@ section {
 .equipment-section ul li i {
     margin-top: 3px;
     flex-shrink: 0;
+    color: var(--primary-orange);
 }
 
 /* ============================================
@@ -886,7 +1006,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 102, 204, 0.8);
+    background-color: rgba(255, 107, 53, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -911,7 +1031,7 @@ section {
 }
 
 .modal-header {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-orange);
     color: var(--text-white);
     border: none;
 }
@@ -944,7 +1064,7 @@ section {
 
 .contact-icon {
     font-size: 48px;
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     margin-bottom: 20px;
 }
 
@@ -962,13 +1082,13 @@ section {
 }
 
 .contact-card-text a {
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-card-text a:hover {
-    color: var(--dark-blue);
+    color: var(--dark-orange);
     text-decoration: underline;
 }
 
@@ -976,7 +1096,7 @@ section {
    Footer Styles
    ============================================ */
 .footer-section {
-    background-color: var(--bg-dark);
+    background-color: var(--primary-orange);
     color: var(--text-white);
     padding: 60px 0 30px;
 }
@@ -1017,8 +1137,8 @@ section {
 
 .social-links-footer a:hover {
     color: var(--text-white);
-    background-color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
     transform: translateY(-3px);
 }
 
@@ -1069,7 +1189,7 @@ section {
 }
 
 .footer-contact-info i {
-    color: var(--primary-blue);
+    color: var(--primary-orange);
     font-size: 16px;
     margin-top: 3px;
     margin-right: 10px;
@@ -1099,8 +1219,8 @@ section {
    Button Styles
    ============================================ */
 .btn-primary {
-    background-color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
     color: var(--text-white);
     padding: 12px 30px;
     font-weight: var(--font-weight-semibold);
@@ -1111,8 +1231,8 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: var(--dark-blue);
-    border-color: var(--dark-blue);
+    background-color: var(--dark-orange);
+    border-color: var(--dark-orange);
     color: var(--text-white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -1277,6 +1397,31 @@ section {
     
     .navbar-brand {
         font-size: 16px;
+    }
+    
+    .logo-container {
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-h {
+        font-size: 22px;
+    }
+    
+    .logo-arabic {
+        font-size: 14px;
+    }
+    
+    .logo-english {
+        font-size: 16px;
+    }
+    
+    .logo-subtitle {
+        font-size: 9px;
     }
     
     .nav-link {

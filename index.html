@@ -15,7 +15,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -31,7 +31,6 @@
                             <ul class="topbar-info list-unstyled mb-0 d-flex flex-wrap">
                                 <li><a href="tel:+96600000000"><i class="bi bi-telephone me-2"></i> Call Us: +966 00 000 0000</a></li>
                                 <li><a href="mailto:info@maalihhermes.com"><i class="bi bi-envelope me-2"></i> Email: info@maalihhermes.com</a></li>
-                                <li><a href="http://www.maalihhermes.com" target="_blank"><i class="bi bi-globe me-2"></i> www.maalihhermes.com</a></li>
                             </ul>
                         </div>
                         <div class="top-bar-right">
@@ -55,7 +54,16 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
-                    <span class="logo-text">Maali Hermes General Contracting Est.</span>
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <span class="logo-h">H</span>
+                        </div>
+                        <div class="logo-text-wrapper">
+                            <div class="logo-arabic">معالي هرمس</div>
+                            <div class="logo-english">Maali Hermes</div>
+                            <div class="logo-subtitle">Maali Hermes General Contracting Est</div>
+                        </div>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -112,15 +120,13 @@
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="hero-slide" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 68, 153, 0.9) 100%), url('https://via.placeholder.com/1920x800/0066cc/ffffff?text=Maali+Hermes') center/cover;">
+                    <div class="hero-slide" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-8 mx-auto text-center">
-                                    <h1 class="hero-title">Maali Hermes General Contracting Est.</h1>
-                                    <p class="hero-subtitle">General Contracting • Manpower Supply • Heavy Equipment Rental</p>
-                                    <div class="hero-buttons mt-4">
-                                        <a href="#contact" class="btn btn-light btn-lg me-3">Contact Us</a>
-                                        <a href="#services" class="btn btn-outline-light btn-lg">Our Services</a>
+                                <div class="col-lg-6">
+                                    <div class="hero-content-left">
+                                        <div class="hero-label">MANPOWER SUPPLY</div>
+                                        <h1 class="hero-title">Your Trusted Source for Reliable Manpower</h1>
                                     </div>
                                 </div>
                             </div>
@@ -128,15 +134,13 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="hero-slide" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 68, 153, 0.9) 100%), url('https://via.placeholder.com/1920x800/004499/ffffff?text=Engineering+Excellence') center/cover;">
+                    <div class="hero-slide" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-8 mx-auto text-center">
-                                    <h1 class="hero-title">Engineering Excellence, Constructing the Future</h1>
-                                    <p class="hero-subtitle">100% Saudi Arabia Company • Specialized in Industrial & Commercial Construction Since 1970</p>
-                                    <div class="hero-buttons mt-4">
-                                        <a href="#about" class="btn btn-light btn-lg me-3">Learn More</a>
-                                        <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
+                                <div class="col-lg-6">
+                                    <div class="hero-content-left">
+                                        <div class="hero-label">EQUIPMENT RENTAL</div>
+                                        <h1 class="hero-title">Heavy Equipment for Your Construction Needs</h1>
                                     </div>
                                 </div>
                             </div>
@@ -144,12 +148,12 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <i class="bi bi-chevron-left"></i>
+            <button class="carousel-control-prev hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-icon"><i class="bi bi-chevron-left"></i></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <i class="bi bi-chevron-right"></i>
+            <button class="carousel-control-next hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-icon"><i class="bi bi-chevron-right"></i></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
