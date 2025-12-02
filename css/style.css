@@ -1,0 +1,966 @@
+/* Complete Custom Styles for Maali Hermes Website Clone */
+
+/* ============================================
+   CSS Variables & Global Styles
+   ============================================ */
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #004499;
+    --text-dark: #333333;
+    --text-medium: #666666;
+    --text-light: #999999;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --footer-bg: #1a1a1a;
+    --border-color: #e5e5e5;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+/* ============================================
+   Top Bar Styles
+   ============================================ */
+.top-bar {
+    background-color: var(--white);
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.top-bar-content {
+    padding: 0 15px;
+}
+
+.topbar-info {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.topbar-info li {
+    list-style: none;
+}
+
+.topbar-info a {
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.topbar-info a:hover {
+    color: var(--primary-color);
+}
+
+.topbar-info i {
+    font-size: 16px;
+}
+
+.social-links ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.social-links a {
+    color: var(--text-medium);
+    font-size: 16px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Header/Navigation Styles
+   ============================================ */
+.header-area {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header-area.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    text-decoration: none;
+}
+
+.logo-text {
+    color: var(--primary-color);
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+    margin: 0 8px;
+    padding: 8px 12px !important;
+    transition: color 0.3s ease;
+    font-size: 15px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.get-quote-btn {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--white);
+    padding: 10px 25px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.get-quote-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ============================================
+   Hero Slider Styles
+   ============================================ */
+.hero-slider-section {
+    margin-top: 0;
+    position: relative;
+}
+
+.hero-slider-section .carousel {
+    height: 80vh;
+    min-height: 600px;
+}
+
+.hero-slider-section .carousel-inner,
+.hero-slider-section .carousel-item {
+    height: 100%;
+}
+
+.hero-slider-section .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mob-img {
+    display: none;
+}
+
+.dsk-img {
+    display: block;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev {
+    left: 30px;
+}
+
+.carousel-control-next {
+    right: 30px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+    background-color: var(--white);
+}
+
+.carousel-control-prev i,
+.carousel-control-next i {
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+/* ============================================
+   Section Common Styles
+   ============================================ */
+.sec-pad {
+    padding: 80px 0;
+}
+
+.subtitle {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   About Section Styles
+   ============================================ */
+.about-section {
+    background-color: var(--white);
+}
+
+.centric-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-description {
+    font-size: 16px;
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Vision & Mission Boxes */
+.vision-mission {
+    margin-top: 40px;
+}
+
+.vision-box,
+.mission-box {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.vision-box:hover,
+.mission-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
+}
+
+.vision-box h5,
+.mission-box h5 {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.vision-box p,
+.mission-box p {
+    color: var(--text-medium);
+    font-size: 15px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* ============================================
+   Management Section Styles
+   ============================================ */
+.management-section {
+    background-color: var(--bg-light);
+}
+
+.management-organogram {
+    padding: 20px 0;
+}
+
+.management-card {
+    background-color: var(--white);
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+    height: 100%;
+}
+
+.management-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 102, 204, 0.15);
+}
+
+.president-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 35px 30px;
+    margin-bottom: 20px;
+}
+
+.president-card h5,
+.president-card p {
+    color: var(--white);
+}
+
+.manager-card {
+    background-color: var(--white);
+    border: 2px solid var(--primary-color);
+    padding: 30px 25px;
+    margin-bottom: 20px;
+}
+
+.manager-card h5 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.coordinator-card {
+    background-color: var(--white);
+}
+
+.management-card h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.management-card p {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ============================================
+   Services Section Styles
+   ============================================ */
+.services-section {
+    background-color: var(--bg-light);
+}
+
+.service-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    background-color: var(--white);
+    margin-bottom: 30px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+}
+
+.service-card .card-body {
+    padding: 30px;
+}
+
+.service-icon {
+    margin-bottom: 20px;
+}
+
+.service-icon-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.service-card .card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.service-card .card-title a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service-card .card-title a:hover {
+    color: var(--primary-color);
+}
+
+.service-card .card-text {
+    color: var(--text-medium);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.service-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    color: var(--secondary-color);
+    margin-left: 5px;
+}
+
+/* ============================================
+   Quality Section Styles
+   ============================================ */
+.quality-section {
+    background-color: var(--white);
+}
+
+.quality-content {
+    padding-right: 30px;
+}
+
+.quality-description {
+    font-size: 16px;
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.quality-features {
+    margin-bottom: 30px;
+}
+
+.quality-features li {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.quality-features li i {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.quality-image img {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* ============================================
+   Why Choose Us Section Styles
+   ============================================ */
+.why-choose-section {
+    background-color: var(--bg-light);
+}
+
+.value-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    background-color: var(--white);
+    margin-bottom: 30px;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
+}
+
+.value-card .card-body {
+    padding: 40px 30px;
+}
+
+.value-icon-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.value-card .card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.value-card .card-text {
+    color: var(--text-medium);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ============================================
+   Gallery Section Styles
+   ============================================ */
+.gallery-section {
+    background-color: var(--white);
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    opacity: 0.9;
+}
+
+/* ============================================
+   CTA Section Styles
+   ============================================ */
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.cta-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+.cta-section .btn-light {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-light:hover {
+    background-color: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   Footer Styles
+   ============================================ */
+.footer-section {
+    background-color: var(--footer-bg);
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-logo h5 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.social-links-footer ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.social-links-footer a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.social-links-footer a:hover {
+    color: var(--white);
+}
+
+.footer-heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+.footer-contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact-info li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact-info i {
+    color: var(--primary-color);
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.footer-contact-info a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+    color: var(--white);
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 40px 0 20px;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+.service-card,
+.value-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card.fade-in,
+.value-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   Responsive Styles
+   ============================================ */
+@media (max-width: 1199px) {
+    .title {
+        font-size: 36px;
+    }
+    
+    .cta-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sec-pad {
+        padding: 60px 0;
+    }
+    
+    .title {
+        font-size: 32px;
+    }
+    
+    .cta-title {
+        font-size: 32px;
+    }
+    
+    .quality-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .vision-box,
+    .mission-box {
+        margin-bottom: 20px;
+    }
+    
+    .management-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 8px 0;
+    }
+    
+    .topbar-info {
+        gap: 15px;
+        font-size: 12px;
+    }
+    
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .navbar-brand {
+        font-size: 16px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        margin: 0 4px;
+        padding: 6px 8px !important;
+    }
+    
+    .get-quote-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    
+    .hero-slider-section .carousel {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .mob-img {
+        display: block;
+    }
+    
+    .dsk-img {
+        display: none;
+    }
+    
+    .sec-pad {
+        padding: 50px 0;
+    }
+    
+    .title {
+        font-size: 28px;
+    }
+    
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .subtitle {
+        font-size: 12px;
+    }
+    
+    .service-card .card-body,
+    .value-card .card-body {
+        padding: 25px 20px;
+    }
+    
+    .service-card .card-title,
+    .value-card .card-title {
+        font-size: 20px;
+    }
+    
+    .vision-box,
+    .mission-box {
+        padding: 20px !important;
+    }
+    
+    .vision-box h5,
+    .mission-box h5 {
+        font-size: 16px;
+    }
+    
+    .vision-box p,
+    .mission-box p {
+        font-size: 14px;
+    }
+    
+    .management-card {
+        padding: 20px 15px;
+    }
+    
+    .management-card h5 {
+        font-size: 12px;
+    }
+    
+    .management-card p {
+        font-size: 14px;
+    }
+    
+    .president-card {
+        padding: 25px 20px;
+    }
+    
+    .footer-section {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-heading {
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-heading:first-child {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 24px;
+    }
+    
+    .cta-title {
+        font-size: 24px;
+    }
+    
+    .about-description,
+    .quality-description {
+        font-size: 14px;
+    }
+    
+    .service-card .card-text,
+    .value-card .card-text {
+        font-size: 14px;
+    }
+    
+    .btn-lg {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
