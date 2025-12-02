@@ -1,21 +1,30 @@
-/* Complete Custom Styles for Maali Hermes Website Clone */
+/* Maali Hermes PROFILE PDF Clone - Exact Match CSS */
 
 /* ============================================
-   CSS Variables & Global Styles
+   CSS Variables - Matching PDF Design
    ============================================ */
 :root {
-    --primary-color: #0066cc;
-    --secondary-color: #004499;
+    /* Colors - Professional corporate palette */
+    --primary-blue: #0066cc;
+    --dark-blue: #004499;
     --text-dark: #333333;
     --text-medium: #666666;
     --text-light: #999999;
+    --bg-white: #ffffff;
     --bg-light: #f8f9fa;
-    --white: #ffffff;
-    --footer-bg: #1a1a1a;
-    --border-color: #e5e5e5;
+    --border-color: #e0e0e0;
+    
+    /* Typography - Matching PDF (Arial-based) */
+    --font-primary: 'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 }
 
-/* Global Styles */
+/* ============================================
+   Global Styles
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -23,10 +32,11 @@
 }
 
 body {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-normal);
     color: var(--text-dark);
-    line-height: 1.7;
+    line-height: 1.6;
+    background-color: var(--bg-white);
     overflow-x: hidden;
 }
 
@@ -35,932 +45,660 @@ html {
 }
 
 section {
-    scroll-margin-top: 100px;
-}
-
-/* ============================================
-   Top Bar Styles
-   ============================================ */
-.top-bar {
-    background-color: var(--white);
-    padding: 10px 0;
-    font-size: 14px;
-}
-
-.top-bar-content {
-    padding: 0 15px;
-}
-
-.topbar-info {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.topbar-info li {
-    list-style: none;
-}
-
-.topbar-info a {
-    color: var(--text-medium);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.topbar-info a:hover {
-    color: var(--primary-color);
-}
-
-.topbar-info i {
-    font-size: 16px;
-}
-
-.social-links ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.social-links a {
-    color: var(--text-medium);
-    font-size: 16px;
-    transition: color 0.3s ease;
-    display: inline-block;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-}
-
-/* ============================================
-   Header/Navigation Styles
-   ============================================ */
-.header-area {
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.header-area.scrolled {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.navbar {
-    padding: 15px 0;
-}
-
-.navbar-brand {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--primary-color) !important;
-    text-decoration: none;
-}
-
-.logo-text {
-    color: var(--primary-color);
-}
-
-.navbar-nav {
-    align-items: center;
-}
-
-.nav-link {
-    font-weight: 500;
-    color: var(--text-dark) !important;
-    margin: 0 8px;
-    padding: 8px 12px !important;
-    transition: color 0.3s ease;
-    font-size: 15px;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-color) !important;
-}
-
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px 0;
-    margin-top: 10px;
-}
-
-.dropdown-item {
-    padding: 10px 20px;
-    color: var(--text-dark);
-    transition: all 0.3s ease;
-    font-size: 14px;
-}
-
-.dropdown-item:hover {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
-}
-
-.get-quote-btn {
-    background-color: var(--primary-color);
-    border: none;
-    color: var(--white);
-    padding: 10px 25px;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-.get-quote-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
-}
-
-.navbar-toggler {
-    border: none;
-    padding: 4px 8px;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-/* ============================================
-   Hero Slider Styles
-   ============================================ */
-.hero-slider-section {
-    margin-top: 0;
+    padding: 80px 0;
     position: relative;
 }
 
-.hero-slider-section .carousel {
-    height: 80vh;
-    min-height: 600px;
-}
-
-.hero-slider-section .carousel-inner,
-.hero-slider-section .carousel-item {
-    height: 100%;
-}
-
-.hero-slider-section .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mob-img {
-    display: none;
-}
-
-.dsk-img {
-    display: block;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.8;
-    transition: all 0.3s ease;
-}
-
-.carousel-control-prev {
-    left: 30px;
-}
-
-.carousel-control-next {
-    right: 30px;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    opacity: 1;
-    background-color: var(--white);
-}
-
-.carousel-control-prev i,
-.carousel-control-next i {
-    color: var(--primary-color);
-    font-size: 24px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* ============================================
-   Section Common Styles
+   Typography - Matching PDF
    ============================================ */
-.sec-pad {
-    padding: 80px 0;
+.section-main-title {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-dark);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    padding: 40px 0;
 }
 
-.subtitle {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 14px;
+.section-title {
+    font-size: 42px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-dark);
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.title {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--text-dark);
-    line-height: 1.2;
     margin-bottom: 20px;
 }
 
-/* ============================================
-   About Section Styles
-   ============================================ */
-.about-section {
-    background-color: var(--white);
-}
-
-.centric-section {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-description {
-    font-size: 16px;
+.section-subtitle {
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
     color: var(--text-medium);
-    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* ============================================
+   Introduction Section
+   ============================================ */
+.introduction-section {
+    background-color: var(--bg-white);
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================
+   Management Structure / Organogram Section
+   ============================================ */
+.management-structure-section {
+    background-color: var(--bg-white);
+    padding: 80px 0;
+}
+
+.organogram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.organogram-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.organogram-card {
+    background-color: var(--bg-white);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px 30px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.organogram-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.organogram-card .card-title {
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.organogram-card .card-name {
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--text-dark);
+    margin-top: 8px;
+}
+
+/* President Card - Special Styling */
+.president-card {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    border: none;
+    color: var(--bg-white);
+    padding: 35px 40px;
+    min-width: 280px;
+}
+
+.president-card .card-title,
+.president-card .card-name {
+    color: var(--bg-white);
+}
+
+.president-card .card-title {
+    font-size: 14px;
+}
+
+.president-card .card-name {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Manager Cards */
+.manager-card {
+    border-color: var(--primary-blue);
+    border-width: 3px;
+}
+
+.manager-card .card-title {
+    color: var(--primary-blue);
+    font-size: 11px;
+}
+
+/* Coordinator Cards */
+.coordinator-card {
+    min-width: 180px;
+}
+
+.coordinator-card .card-title {
+    font-size: 10px;
+    color: var(--text-medium);
+}
+
+/* Level-specific spacing */
+.level-1 {
+    margin-bottom: 20px;
+}
+
+.level-2 {
     margin-bottom: 30px;
 }
 
-/* Vision & Mission Boxes */
-.vision-mission {
-    margin-top: 40px;
+.level-3 {
+    margin-bottom: 30px;
+}
+
+.level-4 {
+    margin-top: 20px;
+}
+
+/* ============================================
+   About Us Section
+   ============================================ */
+.about-section {
+    background-color: var(--bg-light);
+    padding: 80px 0;
+}
+
+/* ============================================
+   Vision & Mission Section
+   ============================================ */
+.vision-mission-section {
+    background-color: var(--bg-white);
+    padding: 80px 0;
 }
 
 .vision-box,
 .mission-box {
     background-color: var(--bg-light);
-    border-radius: 10px;
-    border-left: 4px solid var(--primary-color);
-    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-blue);
+    padding: 40px 35px;
     height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.vision-box:hover,
-.mission-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
-}
-
-.vision-box h5,
-.mission-box h5 {
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.vision-box p,
-.mission-box p {
-    color: var(--text-medium);
-    font-size: 15px;
-    line-height: 1.7;
-    font-style: italic;
-}
-
-/* ============================================
-   Management Section Styles
-   ============================================ */
-.management-section {
-    background-color: var(--bg-light);
-}
-
-.management-organogram {
-    padding: 20px 0;
-}
-
-.management-card {
-    background-color: var(--white);
-    padding: 25px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    text-align: center;
-    height: 100%;
-}
-
-.management-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 102, 204, 0.15);
-}
-
-.president-card {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: var(--white);
-    padding: 35px 30px;
+.vision-box .box-title,
+.mission-box .box-title {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-blue);
     margin-bottom: 20px;
-}
-
-.president-card h5,
-.president-card p {
-    color: var(--white);
-}
-
-.manager-card {
-    background-color: var(--white);
-    border: 2px solid var(--primary-color);
-    padding: 30px 25px;
-    margin-bottom: 20px;
-}
-
-.manager-card h5 {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.coordinator-card {
-    background-color: var(--white);
-}
-
-.management-card h5 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 10px;
 }
 
-.management-card p {
+.vision-box .box-text,
+.mission-box .box-text {
     font-size: 16px;
+    font-weight: var(--font-weight-normal);
     color: var(--text-dark);
-    font-weight: 500;
+    line-height: 1.8;
+    font-style: italic;
     margin: 0;
 }
 
 /* ============================================
-   Services Section Styles
+   Our Values Section
    ============================================ */
-.services-section {
+.values-section {
     background-color: var(--bg-light);
-}
-
-.service-card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    height: 100%;
-    background-color: var(--white);
-    margin-bottom: 30px;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
-}
-
-.service-card .card-body {
-    padding: 30px;
-}
-
-.service-icon {
-    margin-bottom: 20px;
-}
-
-.service-icon-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-
-.service-card .card-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-
-.service-card .card-title a {
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.service-card .card-title a:hover {
-    color: var(--primary-color);
-}
-
-.service-card .card-text {
-    color: var(--text-medium);
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.service-link {
-    color: var(--primary-color);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.service-link:hover {
-    color: var(--secondary-color);
-    margin-left: 5px;
-}
-
-/* ============================================
-   Quality Section Styles
-   ============================================ */
-.quality-section {
-    background-color: var(--white);
-}
-
-.quality-content {
-    padding-right: 30px;
-}
-
-.quality-description {
-    font-size: 16px;
-    color: var(--text-medium);
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.quality-features {
-    margin-bottom: 30px;
-}
-
-.quality-features li {
-    font-size: 16px;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.quality-features li i {
-    color: var(--primary-color);
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-.quality-image img {
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-/* ============================================
-   Why Choose Us Section Styles
-   ============================================ */
-.why-choose-section {
-    background-color: var(--bg-light);
+    padding: 80px 0;
 }
 
 .value-card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    background-color: var(--bg-white);
+    padding: 35px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     height: 100%;
-    background-color: var(--white);
-    margin-bottom: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-blue);
 }
 
 .value-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
 }
 
-.value-card .card-body {
-    padding: 40px 30px;
-}
-
-.value-icon-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-.value-card .card-title {
+.value-title {
     font-size: 22px;
-    font-weight: 600;
-    color: var(--text-dark);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-blue);
     margin-bottom: 15px;
-    margin-top: 20px;
-}
-
-.value-card .card-text {
-    color: var(--text-medium);
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* ============================================
-   Gallery Section Styles
-   ============================================ */
-.gallery-section {
-    background-color: var(--white);
-}
-
-.gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    margin-bottom: 15px;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover img {
-    opacity: 0.9;
-}
-
-/* ============================================
-   CTA Section Styles
-   ============================================ */
-.cta-section {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.cta-title {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 30px;
-}
-
-.cta-section .btn-light {
-    background-color: var(--white);
-    color: var(--primary-color);
-    border: none;
-    padding: 15px 40px;
-    font-weight: 600;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.cta-section .btn-light:hover {
-    background-color: var(--bg-light);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================================
-   Footer Styles
-   ============================================ */
-.footer-section {
-    background-color: var(--footer-bg);
-    color: var(--white);
-    padding: 60px 0 30px;
-}
-
-.footer-logo h5 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--white);
-}
-
-.social-links-footer ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-}
-
-.social-links-footer a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 18px;
-    transition: color 0.3s ease;
-    display: inline-block;
-}
-
-.social-links-footer a:hover {
-    color: var(--white);
-}
-
-.footer-heading {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--white);
-    padding-left: 5px;
-}
-
-.footer-contact-info {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-contact-info li {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.footer-contact-info i {
-    color: var(--primary-color);
-    font-size: 16px;
-    margin-top: 3px;
-}
-
-.footer-contact-info a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-contact-info a:hover {
-    color: var(--white);
-}
-
-.footer-divider {
-    border-color: rgba(255, 255, 255, 0.1);
-    margin: 40px 0 20px;
-}
-
-.copyright {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 14px;
+.value-text {
+    font-size: 15px;
+    font-weight: var(--font-weight-normal);
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* ============================================
-   Button Styles
+   Services Section
    ============================================ */
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--white);
-    padding: 12px 30px;
-    font-weight: 600;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border: none;
+.services-section {
+    background-color: var(--bg-white);
+    padding: 80px 0;
 }
 
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+.service-main-card {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    padding: 60px 40px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
 }
 
-.btn-lg {
-    padding: 15px 40px;
-    font-size: 18px;
+.service-main-title {
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--bg-white);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.service-description {
+    font-size: 20px;
+    font-weight: var(--font-weight-medium);
+    color: var(--bg-white);
+    margin: 0;
+    opacity: 0.95;
 }
 
 /* ============================================
-   Animations
+   Projects Section
    ============================================ */
-.service-card,
-.value-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+.projects-section {
+    background-color: var(--bg-light);
+    padding: 100px 0;
 }
 
-.service-card.fade-in,
-.value-card.fade-in {
-    opacity: 1;
-    transform: translateY(0);
+.project-brand {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 42px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
 }
 
 /* ============================================
-   Responsive Styles
+   Equipment Section
    ============================================ */
+.equipment-section {
+    background-color: var(--bg-white);
+    padding: 80px 0;
+}
+
+/* ============================================
+   Footer Section
+   ============================================ */
+.footer-section {
+    background-color: var(--text-dark);
+    padding: 40px 0;
+    border-top: 3px solid var(--primary-blue);
+}
+
+.footer-text {
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    color: var(--bg-white);
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ============================================
+   Responsive Design - Mobile First
+   ============================================ */
+
+/* Large Tablets and Small Desktops */
 @media (max-width: 1199px) {
-    .title {
+    .section-main-title {
+        font-size: 42px;
+    }
+    
+    .section-title {
         font-size: 36px;
     }
     
-    .cta-title {
+    .project-brand {
+        font-size: 42px;
+    }
+    
+    .project-title {
         font-size: 36px;
     }
 }
 
+/* Tablets */
 @media (max-width: 991px) {
-    .sec-pad {
+    section {
         padding: 60px 0;
     }
     
-    .title {
+    .section-main-title {
+        font-size: 36px;
+        padding: 30px 0;
+    }
+    
+    .section-title {
         font-size: 32px;
     }
     
-    .cta-title {
-        font-size: 32px;
-    }
-    
-    .quality-content {
-        padding-right: 0;
+    .section-subtitle {
+        font-size: 20px;
         margin-bottom: 40px;
     }
     
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none !important;
+    .organogram-container {
+        gap: 30px;
     }
-}
-
-@media (max-width: 991px) {
+    
+    .organogram-level {
+        gap: 20px;
+    }
+    
+    .organogram-card {
+        min-width: 180px;
+        padding: 20px 25px;
+    }
+    
+    .president-card {
+        min-width: 250px;
+        padding: 30px 35px;
+    }
+    
     .vision-box,
     .mission-box {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        padding: 30px 25px;
     }
     
-    .management-card {
-        margin-bottom: 20px;
+    .service-main-card {
+        padding: 50px 30px;
+    }
+    
+    .service-main-title {
+        font-size: 30px;
+    }
+    
+    .service-description {
+        font-size: 18px;
+    }
+    
+    .project-brand {
+        font-size: 36px;
+    }
+    
+    .project-title {
+        font-size: 32px;
     }
 }
 
+/* Mobile Devices */
 @media (max-width: 768px) {
-    .top-bar {
-        padding: 8px 0;
-    }
-    
-    .topbar-info {
-        gap: 15px;
-        font-size: 12px;
-    }
-    
-    .navbar {
-        padding: 10px 0;
-    }
-    
-    .navbar-brand {
-        font-size: 16px;
-    }
-    
-    .nav-link {
-        font-size: 14px;
-        margin: 0 4px;
-        padding: 6px 8px !important;
-    }
-    
-    .get-quote-btn {
-        padding: 8px 15px;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-    
-    .hero-slider-section .carousel {
-        height: 50vh;
-        min-height: 400px;
-    }
-    
-    .mob-img {
-        display: block;
-    }
-    
-    .dsk-img {
-        display: none;
-    }
-    
-    .sec-pad {
+    section {
         padding: 50px 0;
     }
     
-    .title {
-        font-size: 28px;
+    .container {
+        padding: 0 15px;
     }
     
-    .cta-title {
+    .section-main-title {
         font-size: 28px;
+        letter-spacing: 1px;
+        padding: 25px 0;
     }
     
-    .subtitle {
+    .section-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .organogram-container {
+        gap: 25px;
+        padding: 30px 0;
+    }
+    
+    .organogram-level {
+        gap: 15px;
+        flex-direction: column;
+    }
+    
+    .organogram-card {
+        width: 100%;
+        max-width: 300px;
+        min-width: auto;
+        padding: 20px;
+    }
+    
+    .president-card {
+        width: 100%;
+        max-width: 320px;
+        min-width: auto;
+        padding: 25px 30px;
+    }
+    
+    .president-card .card-title {
         font-size: 12px;
     }
     
-    .service-card .card-body,
-    .value-card .card-body {
-        padding: 25px 20px;
+    .president-card .card-name {
+        font-size: 16px;
     }
     
-    .service-card .card-title,
-    .value-card .card-title {
-        font-size: 20px;
+    .manager-card .card-title {
+        font-size: 10px;
+    }
+    
+    .coordinator-card .card-title {
+        font-size: 9px;
+    }
+    
+    .organogram-card .card-name {
+        font-size: 15px;
     }
     
     .vision-box,
     .mission-box {
-        padding: 20px !important;
+        padding: 25px 20px;
+        margin-bottom: 20px;
     }
     
-    .vision-box h5,
-    .mission-box h5 {
-        font-size: 16px;
+    .vision-box .box-title,
+    .mission-box .box-title {
+        font-size: 20px;
+        margin-bottom: 15px;
     }
     
-    .vision-box p,
-    .mission-box p {
+    .vision-box .box-text,
+    .mission-box .box-text {
+        font-size: 15px;
+    }
+    
+    .value-card {
+        padding: 30px 25px;
+        margin-bottom: 20px;
+    }
+    
+    .value-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .value-text {
         font-size: 14px;
     }
     
-    .management-card {
-        padding: 20px 15px;
+    .service-main-card {
+        padding: 40px 25px;
     }
     
-    .management-card h5 {
+    .service-main-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    
+    .service-description {
+        font-size: 16px;
+    }
+    
+    .project-brand {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+    
+    .project-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+    
+    .footer-section {
+        padding: 30px 0;
+    }
+    
+    .footer-text {
         font-size: 12px;
     }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 576px) {
+    .section-main-title {
+        font-size: 24px;
+    }
     
-    .management-card p {
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .section-subtitle {
+        font-size: 16px;
+    }
+    
+    .organogram-card {
+        padding: 18px 15px;
+    }
+    
+    .organogram-card .card-title {
+        font-size: 9px;
+    }
+    
+    .organogram-card .card-name {
         font-size: 14px;
     }
     
     .president-card {
-        padding: 25px 20px;
+        padding: 22px 25px;
     }
     
-    .footer-section {
-        padding: 40px 0 20px;
+    .president-card .card-title {
+        font-size: 11px;
     }
     
-    .footer-heading {
-        font-size: 16px;
-        margin-top: 30px;
-        margin-bottom: 15px;
+    .president-card .card-name {
+        font-size: 15px;
     }
     
-    .footer-heading:first-child {
-        margin-top: 0;
+    .vision-box .box-title,
+    .mission-box .box-title {
+        font-size: 18px;
+    }
+    
+    .vision-box .box-text,
+    .mission-box .box-text {
+        font-size: 14px;
+    }
+    
+    .value-title {
+        font-size: 18px;
+    }
+    
+    .value-text {
+        font-size: 13px;
+    }
+    
+    .service-main-title {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    .service-description {
+        font-size: 15px;
+    }
+    
+    .project-brand {
+        font-size: 28px;
+    }
+    
+    .project-title {
+        font-size: 24px;
     }
 }
 
-@media (max-width: 576px) {
-    .title {
-        font-size: 24px;
+/* Print Styles - For PDF-like viewing */
+@media print {
+    body {
+        background: white;
     }
     
-    .cta-title {
-        font-size: 24px;
+    section {
+        page-break-inside: avoid;
+        padding: 40px 0;
     }
     
-    .about-description,
-    .quality-description {
-        font-size: 14px;
+    .organogram-card {
+        page-break-inside: avoid;
     }
     
-    .service-card .card-text,
-    .value-card .card-text {
-        font-size: 14px;
-    }
-    
-    .btn-lg {
-        padding: 12px 30px;
-        font-size: 16px;
+    .value-card {
+        page-break-inside: avoid;
     }
 }

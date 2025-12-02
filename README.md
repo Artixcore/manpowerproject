@@ -29,14 +29,40 @@ manpowerproject/
 │   └── style.css      # Custom styles
 ├── js/
 │   └── main.js        # JavaScript functionality
+├── setup.sh           # Apache2 setup script for AWS Lightsail
+├── DEPLOYMENT.md      # Detailed deployment guide
+├── QUICK_START.md     # Quick start guide
 └── README.md          # Project documentation
 ```
 
 ## Getting Started
 
+### Local Development
+
 1. Clone or download this repository
 2. Open `index.html` in a web browser
 3. No build process or dependencies required - it's a static website using CDN resources
+
+### AWS Lightsail Deployment
+
+For automated deployment on AWS Lightsail:
+
+1. **Upload files to your Lightsail instance:**
+   ```bash
+   scp -r index.html css/ js/ setup.sh ubuntu@your-instance-ip:/home/ubuntu/manpowerproject/
+   ```
+
+2. **SSH into your instance and run setup:**
+   ```bash
+   ssh ubuntu@your-instance-ip
+   cd /home/ubuntu/manpowerproject
+   sudo bash setup.sh
+   ```
+
+3. **Access your website:**
+   - Open browser: `http://your-instance-public-ip`
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md) or [QUICK_START.md](QUICK_START.md)
 
 ## Sections
 
