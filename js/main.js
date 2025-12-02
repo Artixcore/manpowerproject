@@ -1,4 +1,4 @@
-// Maali Hermes Website - Complete JavaScript
+// Eastern Top Companys Website - Complete JavaScript
 
 (function() {
     'use strict';
