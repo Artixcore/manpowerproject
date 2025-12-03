@@ -55,8 +55,11 @@
             // Management
             'management-title': 'الهيكل الإداري',
             'management-subtitle': 'الرسم التنظيمي للشركة',
+            'organogram-alt': 'الهيكل التنظيمي للشركة',
             'role-president': 'الرئيس',
             'role-gm': 'المدير العام',
+            'role-chairman': 'رئيس مجلس الإدارة',
+            'role-ceo': 'الرئيس التنفيذي',
             'role-om': 'مدير العمليات',
             'role-bdm': 'مدير تطوير الأعمال',
             'role-bc': 'منسق الأعمال',
@@ -246,10 +249,13 @@
             'about-p7': 'We appreciate working with you and look forward to future ventures.',
             'management-title': 'Management Structure',
             'management-subtitle': 'Company Organogram',
+            'organogram-alt': 'Company Organogram',
             'role-president': 'PRESIDENT',
             'role-gm': 'GENERAL MANAGER',
+            'role-chairman': 'CHAIRMAN',
+            'role-ceo': 'CEO',
             'role-om': 'OPERATION MANAGER',
-            'role-bdm': 'BUSINESS DEVELOPMENT MANAGER',
+            'role-bdm': 'BUSINESS DEVOLP. MANAGER',
             'role-bc': 'BUSINESS COORDINATOR',
             'vision-title': 'Vision & Mission',
             'vision-heading': 'Our Vision',
@@ -382,12 +388,26 @@
         elements.forEach(element => {
             const key = element.getAttribute('data-translate');
             if (translations[lang] && translations[lang][key]) {
-                // Handle HTML content
-                if (element.innerHTML.includes('<strong>') || element.innerHTML.includes('<br>')) {
-                    element.innerHTML = translations[lang][key];
-                } else {
-                    element.textContent = translations[lang][key];
+                const translation = translations[lang][key];
+                // Handle image alt attributes
+                if (element.tagName === 'IMG' && element.hasAttribute('data-translate-alt')) {
+                    element.setAttribute('alt', translation);
                 }
+                // Handle HTML content - check the incoming translation, not current element content
+                else if (translation.includes('<strong>') || translation.includes('<br>') || translation.includes('<em>') || translation.includes('<span>')) {
+                    element.innerHTML = translation;
+                } else {
+                    element.textContent = translation;
+                }
+            }
+        });
+        
+        // Handle image alt attributes separately
+        const imageElements = document.querySelectorAll('[data-translate-alt]');
+        imageElements.forEach(element => {
+            const key = element.getAttribute('data-translate-alt');
+            if (translations[lang] && translations[lang][key]) {
+                element.setAttribute('alt', translations[lang][key]);
             }
         });
 

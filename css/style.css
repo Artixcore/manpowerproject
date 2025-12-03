@@ -14,7 +14,7 @@
     /* Text Colors */
     --text-dark: #333333;
     --text-medium: #666666;
-    --text-light: #999999;
+    --text-light: #ffffff;
     --text-white: #ffffff;
     
     /* Background Colors */
@@ -277,6 +277,18 @@ section {
     direction: rtl;
 }
 
+[dir="rtl"] .introduction-section,
+[dir="rtl"] .about-section,
+[dir="rtl"] .personnel-section,
+[dir="rtl"] .principles-section,
+[dir="rtl"] .civil-construction-section,
+[dir="rtl"] .electrical-construction-section,
+[dir="rtl"] .clients-section,
+[dir="rtl"] .scrap-business-section,
+[dir="rtl"] .equipment-section {
+    background-position: center;
+}
+
 [dir="rtl"] .vision-box,
 [dir="rtl"] .mission-box {
     border-left: none;
@@ -411,8 +423,16 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-green) 100%);
     border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .logo-h {
@@ -436,7 +456,7 @@ section {
 
 .logo-english {
     font-size: 22px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
     color: var(--text-dark);
     font-family: var(--font-serif);
     line-height: 1.2;
@@ -444,6 +464,7 @@ section {
 
 .logo-subtitle {
     font-size: 11px;
+    font-weight: var(--font-weight-bold);
     color: var(--text-medium);
     font-family: var(--font-primary);
     line-height: 1.2;
@@ -460,7 +481,7 @@ section {
 }
 
 .nav-link {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
     color: var(--text-dark) !important;
     margin: 0 4px;
     padding: 10px 16px !important;
@@ -878,13 +899,67 @@ section {
    Introduction Section
    ============================================ */
 .introduction-section {
+    position: relative;
     background-color: var(--bg-white);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/management-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
     padding: 60px 0;
+}
+
+.introduction-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.introduction-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ============================================
    About Us Section
    ============================================ */
+.about-section {
+    position: relative;
+    background-color: transparent !important;
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/management-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 .about-content {
     text-align: center;
 }
@@ -912,7 +987,35 @@ section {
    Management Structure Section
    ============================================ */
 .management-structure-section {
+    position: relative;
     background-color: var(--bg-white);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/bgm.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.management-structure-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.organogram-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.organogram-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-white);
+    padding: 20px;
 }
 
 .organogram-container {
@@ -939,13 +1042,24 @@ section {
     padding: 25px 30px;
     text-align: center;
     min-width: 200px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .organogram-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
+}
+
+.organogram-card .card-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.president-card .card-icon {
+    filter: brightness(0) invert(1);
 }
 
 .organogram-card .card-title {
@@ -1208,14 +1322,41 @@ section {
    Personnel Section
    ============================================ */
 .personnel-section {
+    position: relative;
     background-color: var(--bg-white);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/Personnel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.personnel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.personnel-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .personnel-section table {
-    background-color: var(--bg-white);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .personnel-section thead {
@@ -1248,7 +1389,32 @@ section {
    Principles Section
    ============================================ */
 .principles-section {
+    position: relative;
     background-color: var(--bg-light);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/Principles.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.principles-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.principles-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .principles-section ul li {
@@ -1265,7 +1431,32 @@ section {
    Civil Construction Section
    ============================================ */
 .civil-construction-section {
+    position: relative;
     background-color: var(--bg-white);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/Construction.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.civil-construction-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.civil-construction-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .civil-construction-section ul li {
@@ -1285,7 +1476,32 @@ section {
    Electrical Construction Section
    ============================================ */
 .electrical-construction-section {
+    position: relative;
     background-color: var(--bg-light);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/Electrical.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.electrical-construction-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.electrical-construction-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .electrical-construction-section ul li {
@@ -1301,7 +1517,32 @@ section {
    Clients Section
    ============================================ */
 .clients-section {
+    position: relative;
     background-color: var(--bg-white);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/client.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.clients-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.clients-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .clients-section .service-card {
@@ -1315,12 +1556,66 @@ section {
    Scrap Business Section
    ============================================ */
 .scrap-business-section {
+    position: relative;
     background-color: var(--bg-light);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/scrap.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.scrap-business-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.scrap-business-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ============================================
    Equipment Section
    ============================================ */
+.equipment-section {
+    position: relative;
+    background-color: var(--bg-light);
+    background-image: url('https://storaeall.s3.us-east-1.amazonaws.com/Resources.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.equipment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+.equipment-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 .equipment-section ul li {
     margin-bottom: 12px;
     font-size: 15px;
@@ -1745,6 +2040,14 @@ section {
         padding: 14px 28px;
     }
     
+    .organogram-image-container {
+        padding: 30px 0;
+    }
+    
+    .organogram-image {
+        padding: 15px;
+    }
+    
     .organogram-container {
         gap: 30px;
     }
@@ -1806,6 +2109,32 @@ section {
         font-size: 12px;
     }
     
+    .management-structure-section,
+    .introduction-section,
+    .about-section,
+    .personnel-section,
+    .principles-section,
+    .civil-construction-section,
+    .electrical-construction-section,
+    .clients-section,
+    .scrap-business-section,
+    .equipment-section {
+        background-attachment: scroll;
+    }
+    
+    .introduction-section::before,
+    .about-section::before,
+    .personnel-section::before,
+    .principles-section::before,
+    .civil-construction-section::before,
+    .electrical-construction-section::before,
+    .clients-section::before,
+    .scrap-business-section::before,
+    .equipment-section::before {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+    
     .language-switcher {
         margin-bottom: 8px;
     }
@@ -1837,6 +2166,12 @@ section {
     .logo-icon {
         width: 35px;
         height: 35px;
+    }
+    
+    .logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
     
     .logo-h {
@@ -2009,6 +2344,15 @@ section {
     
     .section-description {
         font-size: 14px;
+    }
+    
+    .organogram-image-container {
+        padding: 20px 0;
+    }
+    
+    .organogram-image {
+        padding: 10px;
+        border-radius: 8px;
     }
     
     .organogram-container {
