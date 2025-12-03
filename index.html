@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +29,16 @@
                     <div class="top-bar-content d-flex justify-content-between align-items-center flex-wrap">
                         <div class="top-bar-left">
                             <ul class="topbar-info list-unstyled mb-0 d-flex flex-wrap">
-                                <li><a href="tel:+966536642829"><i class="bi bi-telephone me-2"></i> Call Us: +966536642829</a></li>
-                                <li><a href="mailto:info@easterntopcompanys.com"><i class="bi bi-envelope me-2"></i> Email: info@easterntopcompanys.com</a></li>
+                                <li><a href="tel:+966536642829"><i class="bi bi-telephone me-2"></i> <span data-translate="topbar-call">Call Us:</span> +966536642829</a></li>
+                                <li><a href="mailto:info@easterntopcompanys.com"><i class="bi bi-envelope me-2"></i> <span data-translate="topbar-email">Email:</span> info@easterntopcompanys.com</a></li>
                             </ul>
                         </div>
                         <div class="top-bar-right">
+                            <div class="language-switcher me-3">
+                                <button id="langToggle" class="lang-toggle-btn" aria-label="Toggle Language">
+                                    <span class="lang-text">EN</span>
+                                </button>
+                            </div>
                             <div class="social-links">
                                 <ul class="list-unstyled mb-0 d-flex">
                                     <li><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
@@ -58,9 +63,9 @@
                         <div class="logo-icon">
                             <span class="logo-h">H</span>
                         </div>
-                        <div class="logo-text-wrapper">
+                            <div class="logo-text-wrapper">
                             <div class="logo-english">Eastern Top Companys</div>
-                            <div class="logo-subtitle">General Contracting Est</div>
+                            <div class="logo-subtitle" data-translate="logo-subtitle">General Contracting Est</div>
                         </div>
                     </div>
                 </a>
@@ -70,43 +75,43 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
+                            <a class="nav-link active" href="#home" data-translate="nav-home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About Us</a>
+                            <a class="nav-link" href="#about" data-translate="nav-about">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="nav-services">
                                 Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                <li><a class="dropdown-item" href="#services">Manpower Supply & Equipment Rental</a></li>
-                                <li><a class="dropdown-item" href="#services">Material Supply Division</a></li>
-                                <li><a class="dropdown-item" href="#services">Technical Support System</a></li>
-                                <li><a class="dropdown-item" href="#services">Industrial Trading Division</a></li>
-                                <li><a class="dropdown-item" href="#services">Structural Steel Fabrication</a></li>
+                                <li><a class="dropdown-item" href="#services" data-translate="service-1">Manpower Supply & Equipment Rental</a></li>
+                                <li><a class="dropdown-item" href="#services" data-translate="service-2">Material Supply Division</a></li>
+                                <li><a class="dropdown-item" href="#services" data-translate="service-3">Technical Support System</a></li>
+                                <li><a class="dropdown-item" href="#services" data-translate="service-4">Industrial Trading Division</a></li>
+                                <li><a class="dropdown-item" href="#services" data-translate="service-5">Structural Steel Fabrication</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#management">Management</a>
+                            <a class="nav-link" href="#management" data-translate="nav-management">Management</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#values">Values</a>
+                            <a class="nav-link" href="#values" data-translate="nav-values">Values</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#personnel">Personnel</a>
+                            <a class="nav-link" href="#personnel" data-translate="nav-personnel">Personnel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#clients">Clients</a>
+                            <a class="nav-link" href="#clients" data-translate="nav-clients">Clients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#gallery">Gallery</a>
+                            <a class="nav-link" href="#gallery" data-translate="nav-gallery">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Us</a>
+                            <a class="nav-link" href="#contact" data-translate="nav-contact">Contact Us</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="btn btn-primary get-quote-btn" href="#contact">GET A QUOTE <i class="bi bi-arrow-right ms-1"></i></a>
+                            <a class="btn btn-primary get-quote-btn" href="#contact"><span data-translate="btn-quote">GET A QUOTE</span> <i class="bi bi-arrow-right ms-1"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -124,8 +129,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="hero-content-left">
-                                        <div class="hero-label">MANPOWER SUPPLY</div>
-                                        <h1 class="hero-title">Your Trusted Source for Reliable Manpower</h1>
+                                        <div class="hero-label" data-translate="hero-label-1">MANPOWER SUPPLY</div>
+                                        <h1 class="hero-title" data-translate="hero-title-1">Your Trusted Source for Reliable Manpower</h1>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +143,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="hero-content-left">
-                                        <div class="hero-label">EQUIPMENT RENTAL</div>
-                                        <h1 class="hero-title">Heavy Equipment for Your Construction Needs</h1>
+                                        <div class="hero-label" data-translate="hero-label-2">EQUIPMENT RENTAL</div>
+                                        <h1 class="hero-title" data-translate="hero-title-2">Heavy Equipment for Your Construction Needs</h1>
                                     </div>
                                 </div>
                             </div>
@@ -149,11 +154,11 @@
             </div>
             <button class="carousel-control-prev hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                 <span class="carousel-control-icon"><i class="bi bi-chevron-left"></i></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden" data-translate="carousel-prev">Previous</span>
             </button>
             <button class="carousel-control-next hero-carousel-control" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                 <span class="carousel-control-icon"><i class="bi bi-chevron-right"></i></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden" data-translate="carousel-next">Next</span>
             </button>
         </div>
     </section>
@@ -163,15 +168,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Introduction</h2>
+                    <h2 class="section-title" data-translate="intro-title">Introduction</h2>
                     <div class="section-divider"></div>
                     <div class="about-content">
-                        <p class="lead">Eastern Top Companys is a <strong>100% Saudi Arabia Company</strong> Registered with ministry and chamber of commerce Commercial Reg. No: 7051448806 <strong></strong>.</p>
-                        <p>We are specialized in the field of industrial and commercial constructions: civil, mechanical, electro mechanical, HVAC System.</p>
-                        <p>We are handling all types of turnkey projects.</p>
-                        <p>The company is controlled by management team with a clear focus on individual responsibility and high level of expertise.</p>
-                        <p>Qualified and experienced persons manage estimation, engineering management, planning constructions, safety quality control, quality assurance and cost control of projects.</p>
-                        <p>We look forward to having long-standing business relationships with all our esteemed customers.</p>
+                        <p class="lead" data-translate="intro-p1">Eastern Top Companys is a <strong>100% Saudi Arabia Company</strong> Registered with ministry and chamber of commerce Commercial Reg. No: 7051448806 <strong></strong>.</p>
+                        <p data-translate="intro-p2">We are specialized in the field of industrial and commercial constructions: civil, mechanical, electro mechanical, HVAC System.</p>
+                        <p data-translate="intro-p3">We are handling all types of turnkey projects.</p>
+                        <p data-translate="intro-p4">The company is controlled by management team with a clear focus on individual responsibility and high level of expertise.</p>
+                        <p data-translate="intro-p5">Qualified and experienced persons manage estimation, engineering management, planning constructions, safety quality control, quality assurance and cost control of projects.</p>
+                        <p data-translate="intro-p6">We look forward to having long-standing business relationships with all our esteemed customers.</p>
                     </div>
                 </div>
             </div>
@@ -183,20 +188,20 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">About Us</h2>
+                    <h2 class="section-title" data-translate="about-title">About Us</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content">
-                        <p class="lead">We are pleased to introduce you <strong>Eastern Top Companys</strong>, a pioneer in industrial and commercial construction.</p>
-                        <p>We are a leading contracting company in Saudi Arabia.</p>
-                        <p>We handle all types of industrial and commercial construction since 1970.</p>
-                        <p>Eastern Top Companys has added to its achievements some of the industrial and commercial construction.</p>
-                        <p>We provide contracting services and undertake commercial and industrial ventures as well.</p>
-                        <p>We believe in using updated technologies and ensuring safety when designing venture plans.</p>
-                        <p>We appreciate working with you and look forward to future ventures.</p>
+                        <p class="lead" data-translate="about-p1">We are pleased to introduce you <strong>Eastern Top Companys</strong>, a pioneer in industrial and commercial construction.</p>
+                        <p data-translate="about-p2">We are a leading contracting company in Saudi Arabia.</p>
+                        <p data-translate="about-p3">We handle all types of industrial and commercial construction since 1970.</p>
+                        <p data-translate="about-p4">Eastern Top Companys has added to its achievements some of the industrial and commercial construction.</p>
+                        <p data-translate="about-p5">We provide contracting services and undertake commercial and industrial ventures as well.</p>
+                        <p data-translate="about-p6">We believe in using updated technologies and ensuring safety when designing venture plans.</p>
+                        <p data-translate="about-p7">We appreciate working with you and look forward to future ventures.</p>
                     </div>
                 </div>
             </div>
@@ -208,8 +213,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Management Structure</h2>
-                    <h3 class="section-subtitle">Company Organogram</h3>
+                    <h2 class="section-title" data-translate="management-title">Management Structure</h2>
+                    <h3 class="section-subtitle" data-translate="management-subtitle">Company Organogram</h3>
                     <div class="section-divider"></div>
                 </div>
             </div>
@@ -219,7 +224,7 @@
                         <!-- President -->
                         <div class="organogram-level level-1">
                             <div class="organogram-card president-card">
-                                <div class="card-title">PRESIDENT</div>
+                                <div class="card-title" data-translate="role-president">PRESIDENT</div>
                                 <div class="card-name">Abdullah Al Qahtani</div>
                             </div>
                         </div>
@@ -227,7 +232,7 @@
                         <!-- General Manager -->
                         <div class="organogram-level level-2">
                             <div class="organogram-card manager-card">
-                                <div class="card-title">GENERAL MANAGER</div>
+                                <div class="card-title" data-translate="role-gm">GENERAL MANAGER</div>
                                 <div class="card-name">Abu Rakhan</div>
                             </div>
                         </div>
@@ -235,11 +240,11 @@
                         <!-- Operation Manager & Business Development Manager -->
                         <div class="organogram-level level-3">
                             <div class="organogram-card manager-card">
-                                <div class="card-title">OPERATION MANAGER</div>
+                                <div class="card-title" data-translate="role-om">OPERATION MANAGER</div>
                                 <div class="card-name">Mr. Mahmud</div>
                             </div>
                             <div class="organogram-card manager-card">
-                                <div class="card-title">BUSINESS DEVELOPMENT MANAGER</div>
+                                <div class="card-title" data-translate="role-bdm">BUSINESS DEVELOPMENT MANAGER</div>
                                 <div class="card-name">Takbir Hossain </div>
                             </div>
                         </div>
@@ -247,19 +252,19 @@
                         <!-- Business Coordinators -->
                         <div class="organogram-level level-4">
                             <div class="organogram-card coordinator-card">
-                                <div class="card-title">BUSINESS COORDINATOR</div>
+                                <div class="card-title" data-translate="role-bc">BUSINESS COORDINATOR</div>
                                 <div class="card-name">Takbir Hussain</div>
                             </div>
                             <div class="organogram-card coordinator-card">
-                                <div class="card-title">BUSINESS COORDINATOR</div>
+                                <div class="card-title" data-translate="role-bc">BUSINESS COORDINATOR</div>
                                 <div class="card-name">Taraq Hussain</div>
                             </div>
                             <div class="organogram-card coordinator-card">
-                                <div class="card-title">BUSINESS COORDINATOR</div>
+                                <div class="card-title" data-translate="role-bc">BUSINESS COORDINATOR</div>
                                 <div class="card-name">Jihan Mubarak</div>
                             </div>
                             <div class="organogram-card coordinator-card">
-                                <div class="card-title">BUSINESS COORDINATOR</div>
+                                <div class="card-title" data-translate="role-bc">BUSINESS COORDINATOR</div>
                                 <div class="card-name">Imam Rony</div>
                             </div>
                         </div>
@@ -274,7 +279,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Vision & Mission</h2>
+                    <h2 class="section-title" data-translate="vision-title">Vision & Mission</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
@@ -284,8 +289,8 @@
                         <div class="box-icon">
                             <i class="bi bi-eye-fill"></i>
                         </div>
-                        <h3 class="box-title">Our Vision</h3>
-                        <p class="box-text">"To become a world-class industrial engineering and construction company operating operationally."</p>
+                        <h3 class="box-title" data-translate="vision-heading">Our Vision</h3>
+                        <p class="box-text" data-translate="vision-text">"To become a world-class industrial engineering and construction company operating operationally."</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -293,8 +298,8 @@
                         <div class="box-icon">
                             <i class="bi bi-bullseye"></i>
                         </div>
-                        <h3 class="box-title">Mission</h3>
-                        <p class="box-text">"To provide our customer with quality, cost-effective and reliable solutions and an EPC contractor at home and manufacture of plants and equipment in the kingdom."</p>
+                        <h3 class="box-title" data-translate="mission-heading">Mission</h3>
+                        <p class="box-text" data-translate="mission-text">"To provide our customer with quality, cost-effective and reliable solutions and an EPC contractor at home and manufacture of plants and equipment in the kingdom."</p>
                     </div>
                 </div>
             </div>
@@ -304,8 +309,8 @@
                         <div class="box-icon">
                             <i class="bi bi-file-earmark-text"></i>
                         </div>
-                        <h3 class="box-title">Our Policy</h3>
-                        <p class="box-text">Eastern Top Companys is committed to provide quality services to customers by addressing needs and expectations, providing creative solutions, competitive pricing, timely completion, and full fulfillment of customer requirements.</p>
+                        <h3 class="box-title" data-translate="policy-heading">Our Policy</h3>
+                        <p class="box-text" data-translate="policy-text">Eastern Top Companys is committed to provide quality services to customers by addressing needs and expectations, providing creative solutions, competitive pricing, timely completion, and full fulfillment of customer requirements.</p>
                     </div>
                 </div>
             </div>
@@ -317,9 +322,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Our Values</h2>
+                    <h2 class="section-title" data-translate="values-title">Our Values</h2>
                     <div class="section-divider"></div>
-                    <p class="section-description">At <strong>Eastern Top Companys</strong>, we uphold the following values:</p>
+                    <p class="section-description" data-translate="values-desc">At <strong>Eastern Top Companys</strong>, we uphold the following values:</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -328,8 +333,8 @@
                         <div class="value-icon">
                             <i class="bi bi-shield-check"></i>
                         </div>
-                        <h3 class="value-title">Integrity</h3>
-                        <p class="value-text">We uphold the highest ethical standards in all our dealings.</p>
+                        <h3 class="value-title" data-translate="value-integrity-title">Integrity</h3>
+                        <p class="value-text" data-translate="value-integrity-text">We uphold the highest ethical standards in all our dealings.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -337,8 +342,8 @@
                         <div class="value-icon">
                             <i class="bi bi-people"></i>
                         </div>
-                        <h3 class="value-title">Teamwork</h3>
-                        <p class="value-text">We foster a collaborative environment where everyone works together to achieve common goals.</p>
+                        <h3 class="value-title" data-translate="value-teamwork-title">Teamwork</h3>
+                        <p class="value-text" data-translate="value-teamwork-text">We foster a collaborative environment where everyone works together to achieve common goals.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -346,8 +351,8 @@
                         <div class="value-icon">
                             <i class="bi bi-person-heart"></i>
                         </div>
-                        <h3 class="value-title">Customer Focus</h3>
-                        <p class="value-text">We are dedicated to understanding and meeting our clients' needs.</p>
+                        <h3 class="value-title" data-translate="value-customer-title">Customer Focus</h3>
+                        <p class="value-text" data-translate="value-customer-text">We are dedicated to understanding and meeting our clients' needs.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -355,8 +360,8 @@
                         <div class="value-icon">
                             <i class="bi bi-award"></i>
                         </div>
-                        <h3 class="value-title">Quality</h3>
-                        <p class="value-text">We strive for excellence in everything we do.</p>
+                        <h3 class="value-title" data-translate="value-quality-title">Quality</h3>
+                        <p class="value-text" data-translate="value-quality-text">We strive for excellence in everything we do.</p>
                     </div>
                 </div>
             </div>
@@ -368,7 +373,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Services Offered</h2>
+                    <h2 class="section-title" data-translate="services-title">Services Offered</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
@@ -378,8 +383,8 @@
                         <div class="service-icon">
                             <i class="bi bi-people-fill"></i>
                         </div>
-                        <h4 class="service-card-title">Manpower Supply & Equipment Rental</h4>
-                        <p class="service-card-text">Comprehensive manpower supply services and heavy equipment rental for industrial and commercial construction projects.</p>
+                        <h4 class="service-card-title" data-translate="service-1">Manpower Supply & Equipment Rental</h4>
+                        <p class="service-card-text" data-translate="service-1-desc">Comprehensive manpower supply services and heavy equipment rental for industrial and commercial construction projects.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -387,8 +392,8 @@
                         <div class="service-icon">
                             <i class="bi bi-box-seam"></i>
                         </div>
-                        <h4 class="service-card-title">Material Supply Division</h4>
-                        <p class="service-card-text">Reliable material supply services ensuring quality materials for all construction and industrial projects.</p>
+                        <h4 class="service-card-title" data-translate="service-2">Material Supply Division</h4>
+                        <p class="service-card-text" data-translate="service-2-desc">Reliable material supply services ensuring quality materials for all construction and industrial projects.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -396,8 +401,8 @@
                         <div class="service-icon">
                             <i class="bi bi-tools"></i>
                         </div>
-                        <h4 class="service-card-title">Technical Support System</h4>
-                        <p class="service-card-text">Expert technical support and consultation services for all your construction and engineering needs.</p>
+                        <h4 class="service-card-title" data-translate="service-3">Technical Support System</h4>
+                        <p class="service-card-text" data-translate="service-3-desc">Expert technical support and consultation services for all your construction and engineering needs.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -405,8 +410,8 @@
                         <div class="service-icon">
                             <i class="bi bi-briefcase"></i>
                         </div>
-                        <h4 class="service-card-title">Industrial Trading Division</h4>
-                        <p class="service-card-text">Comprehensive industrial trading services providing quality products and solutions for industrial projects.</p>
+                        <h4 class="service-card-title" data-translate="service-4">Industrial Trading Division</h4>
+                        <p class="service-card-text" data-translate="service-4-desc">Comprehensive industrial trading services providing quality products and solutions for industrial projects.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -414,8 +419,8 @@
                         <div class="service-icon">
                             <i class="bi bi-building"></i>
                         </div>
-                        <h4 class="service-card-title">Structural Steel Fabrication</h4>
-                        <p class="service-card-text">Expert structural steel fabrication services for industrial and commercial construction projects.</p>
+                        <h4 class="service-card-title" data-translate="service-5">Structural Steel Fabrication</h4>
+                        <p class="service-card-text" data-translate="service-5-desc">Expert structural steel fabrication services for industrial and commercial construction projects.</p>
                     </div>
                 </div>
             </div>
@@ -427,9 +432,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Construction Personnel</h2>
+                    <h2 class="section-title" data-translate="personnel-title">Construction Personnel</h2>
                     <div class="section-divider"></div>
-                    <p class="section-description">Current manpower—subject to change</p>
+                    <p class="section-description" data-translate="personnel-desc">Current manpower—subject to change</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -438,35 +443,35 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Role</th>
-                                    <th class="text-end">Count</th>
+                                    <th data-translate="table-role">Role</th>
+                                    <th class="text-end" data-translate="table-count">Count</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>Admin Staff</td><td class="text-end">10</td></tr>
-                                <tr><td>Engineers (Mechanical)</td><td class="text-end">6</td></tr>
-                                <tr><td>Engineers (Civil)</td><td class="text-end">8</td></tr>
-                                <tr><td>Engineers (Electrical)</td><td class="text-end">6</td></tr>
-                                <tr><td>AutoCAD Draftsman</td><td class="text-end">5</td></tr>
-                                <tr><td>General Foreman (Mechanical)</td><td class="text-end">8</td></tr>
-                                <tr><td>General Foreman (Civil)</td><td class="text-end">12</td></tr>
-                                <tr><td>General Foreman (Electrical)</td><td class="text-end">8</td></tr>
-                                <tr><td>Instrument Technician</td><td class="text-end">30</td></tr>
-                                <tr><td>Instrument Fitter</td><td class="text-end">10</td></tr>
-                                <tr><td>Laminator</td><td class="text-end">30</td></tr>
-                                <tr><td>Fabricators</td><td class="text-end">24</td></tr>
-                                <tr><td>Welders</td><td class="text-end">20</td></tr>
-                                <tr><td>Pipe Fitters</td><td class="text-end">30</td></tr>
-                                <tr><td>Mechanical Fitters</td><td class="text-end">30</td></tr>
-                                <tr><td>Painters</td><td class="text-end">6</td></tr>
-                                <tr><td>Masons</td><td class="text-end">30</td></tr>
-                                <tr><td>Carpenters</td><td class="text-end">12</td></tr>
-                                <tr><td>Steel Fixers</td><td class="text-end">30</td></tr>
-                                <tr><td>Plumbers</td><td class="text-end">20</td></tr>
-                                <tr><td>Electricians</td><td class="text-end">30</td></tr>
-                                <tr><td>HAVC Technicians</td><td class="text-end">10</td></tr>
-                                <tr><td>Helpers</td><td class="text-end">100</td></tr>
-                                <tr><td>Drivers</td><td class="text-end">15</td></tr>
+                                <tr><td data-translate="role-admin">Admin Staff</td><td class="text-end">15</td></tr>
+                                <tr><td data-translate="role-eng-mech">Engineers (Mechanical)</td><td class="text-end">20</td></tr>
+                                <tr><td data-translate="role-eng-civil">Engineers (Civil)</td><td class="text-end">11</td></tr>
+                                <tr><td data-translate="role-eng-elec">Engineers (Electrical)</td><td class="text-end">13</td></tr>
+                                <tr><td data-translate="role-draftsman">AutoCAD Draftsman</td><td class="text-end">15</td></tr>
+                                <tr><td data-translate="role-fm-mech">General Foreman (Mechanical)</td><td class="text-end">18</td></tr>
+                                <tr><td data-translate="role-fm-civil">General Foreman (Civil)</td><td class="text-end">12</td></tr>
+                                <tr><td data-translate="role-fm-elec">General Foreman (Electrical)</td><td class="text-end">28</td></tr>
+                                <tr><td data-translate="role-inst-tech">Instrument Technician</td><td class="text-end">30</td></tr>
+                                <tr><td data-translate="role-inst-fit">Instrument Fitter</td><td class="text-end">50</td></tr>
+                                <tr><td data-translate="role-laminator">Laminator</td><td class="text-end">80</td></tr>
+                                <tr><td data-translate="role-fabricator">Fabricators</td><td class="text-end">64</td></tr>
+                                <tr><td data-translate="role-welder">Welders</td><td class="text-end">70</td></tr>
+                                <tr><td data-translate="role-pipe-fit">Pipe Fitters</td><td class="text-end">60</td></tr>
+                                <tr><td data-translate="role-mech-fit">Mechanical Fitters</td><td class="text-end">70</td></tr>
+                                <tr><td data-translate="role-painter">Painters</td><td class="text-end">6</td></tr>
+                                <tr><td data-translate="role-mason">Masons</td><td class="text-end">60</td></tr>
+                                <tr><td data-translate="role-carpenter">Carpenters</td><td class="text-end">80</td></tr>
+                                <tr><td data-translate="role-steel-fix">Steel Fixers</td><td class="text-end">90</td></tr>
+                                <tr><td data-translate="role-plumber">Plumbers</td><td class="text-end">80</td></tr>
+                                <tr><td data-translate="role-electrician">Electricians</td><td class="text-end">60</td></tr>
+                                <tr><td data-translate="role-hvac">HAVC Technicians</td><td class="text-end">60</td></tr>
+                                <tr><td data-translate="role-helper">Helpers</td><td class="text-end">100</td></tr>
+                                <tr><td data-translate="role-driver">Drivers</td><td class="text-end">60</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -480,19 +485,19 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Center Principles</h2>
+                    <h2 class="section-title" data-translate="principles-title">Center Principles</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content">
-                        <h3 class="mb-4" style="color: var(--primary-blue);">Engineering and construction excellence</h3>
+                        <h3 class="mb-4" style="color: var(--primary-blue);" data-translate="principles-heading">Engineering and construction excellence</h3>
                         <ul class="list-unstyled" style="font-size: 16px; line-height: 2;">
-                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Outstanding service and progressive technical comprehension and capabilities.</li>
-                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Exceptional healthiness and wellbeing values.</li>
-                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Intelligibility, liability, and restraint in all essential regions.</li>
-                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Esteeming and honoring staff and guaranteeing constant growth.</li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="principle-1">Outstanding service and progressive technical comprehension and capabilities.</span></li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="principle-2">Exceptional healthiness and wellbeing values.</span></li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="principle-3">Intelligibility, liability, and restraint in all essential regions.</span></li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="principle-4">Esteeming and honoring staff and guaranteeing constant growth.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -505,32 +510,32 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Industrial Civil Construction</h2>
+                    <h2 class="section-title" data-translate="civil-title">Industrial Civil Construction</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content">
-                        <p class="lead mb-4">Track record includes major industrial and multi-discipline projects:</p>
-                        <p class="mb-4">Desalination plants, power plants, petrochemical and gas installations, cement plants, utility installations, high-tension electrical substations.</p>
-                        <h3 class="mb-4" style="color: var(--primary-blue);">Services</h3>
+                        <p class="lead mb-4" data-translate="civil-p1">Track record includes major industrial and multi-discipline projects:</p>
+                        <p class="mb-4" data-translate="civil-p2">Desalination plants, power plants, petrochemical and gas installations, cement plants, utility installations, high-tension electrical substations.</p>
+                        <h3 class="mb-4" style="color: var(--primary-blue);" data-translate="civil-services-heading">Services</h3>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Reinforced Concrete Construction</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Pre-engineered Steel Building Erection</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Pre-Cast Concrete Construction / Erection</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Internal Finishing / Furnishing</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Earth Works</li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s1">Reinforced Concrete Construction</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s2">Pre-engineered Steel Building Erection</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s3">Pre-Cast Concrete Construction / Erection</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s4">Internal Finishing / Furnishing</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s5">Earth Works</span></li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Fencing Installations</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Paving Operations</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Mechanical Construction + Underground Utilities</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Site/Civil Engineering</li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s6">Fencing Installations</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s7">Paving Operations</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s8">Mechanical Construction + Underground Utilities</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="civil-s9">Site/Civil Engineering</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -545,31 +550,31 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Electrical Construction Plant</h2>
+                    <h2 class="section-title" data-translate="electrical-title">Electrical Construction Plant</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content">
-                        <p class="lead mb-4">Includes:</p>
+                        <p class="lead mb-4" data-translate="electrical-p1">Includes:</p>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Installation of Field Panels, Junction Boxes, Limit switches, Push Buttons</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Cable tray & conduits</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> MV/LV Motor control center, PLC/DCS panels</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Industrial Communication Systems</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Power & Lighting for Industrial/Commercial complexes</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Construction of Manholes, Duct banks, Pits</li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s1">Installation of Field Panels, Junction Boxes, Limit switches, Push Buttons</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s2">Cable tray & conduits</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s3">MV/LV Motor control center, PLC/DCS panels</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s4">Industrial Communication Systems</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s5">Power & Lighting for Industrial/Commercial complexes</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s6">Construction of Manholes, Duct banks, Pits</span></li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Road & Area Lighting, Buried & Aerial Cabling</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Grounding & Lightning Protection</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Cathodic Protection equipment (testing, commissioning)</li>
-                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Plant maintenance services (short & long term) across Civil, Electrical, Mechanical disciplines</li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s7">Road & Area Lighting, Buried & Aerial Cabling</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s8">Grounding & Lightning Protection</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s9">Cathodic Protection equipment (testing, commissioning)</span></li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <span data-translate="electrical-s10">Plant maintenance services (short & long term) across Civil, Electrical, Mechanical disciplines</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -584,7 +589,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Projects</h2>
+                    <h2 class="section-title" data-translate="projects-title">Projects</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
@@ -593,26 +598,26 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="service-card">
-                                <h4 class="service-card-title">Electrical Work</h4>
-                                <p class="service-card-text">Comprehensive electrical construction and installation services.</p>
+                                <h4 class="service-card-title" data-translate="project-1-title">Electrical Work</h4>
+                                <p class="service-card-text" data-translate="project-1-desc">Comprehensive electrical construction and installation services.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-card">
-                                <h4 class="service-card-title">Construction Project – Dammam</h4>
-                                <p class="service-card-text">Major construction projects in Dammam region.</p>
+                                <h4 class="service-card-title" data-translate="project-2-title">Construction Project – Dammam</h4>
+                                <p class="service-card-text" data-translate="project-2-desc">Major construction projects in Dammam region.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-card">
-                                <h4 class="service-card-title">Construction Project – Al Jubail</h4>
-                                <p class="service-card-text">Industrial and commercial construction projects in Al Jubail.</p>
+                                <h4 class="service-card-title" data-translate="project-3-title">Construction Project – Al Jubail</h4>
+                                <p class="service-card-text" data-translate="project-3-desc">Industrial and commercial construction projects in Al Jubail.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-card">
-                                <h4 class="service-card-title">Construction Project – Al Jubail, Support Industrial Area</h4>
-                                <p class="service-card-text">Support industrial area construction projects in Al Jubail.</p>
+                                <h4 class="service-card-title" data-translate="project-4-title">Construction Project – Al Jubail, Support Industrial Area</h4>
+                                <p class="service-card-text" data-translate="project-4-desc">Support industrial area construction projects in Al Jubail.</p>
                             </div>
                         </div>
                     </div>
@@ -626,9 +631,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Equipment Resources</h2>
+                    <h2 class="section-title" data-translate="equipment-title">Equipment Resources</h2>
                     <div class="section-divider"></div>
-                    <p class="section-description">We maintain a comprehensive fleet of modern construction equipment to support our projects.</p>
+                    <p class="section-description" data-translate="equipment-desc">We maintain a comprehensive fleet of modern construction equipment to support our projects.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -670,43 +675,69 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Major Clients</h2>
+                    <h2 class="section-title" data-translate="clients-title">Major Clients</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="row g-4">
+
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">China Harbour</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">Sinopec E&amp;C Middle East Co. Ltd.</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">Samsung</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">Hyundai Heavy Industrial Services</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">Nasser S. Al-Hajri Corp (NSH)</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card fade-in">
+                                    <h4 class="service-card-title">China Geo-Engineering Corporation (Saudi Branch)</h4>
+                                </div>
+                            </div>
+                      
+
+
                         <div class="col-md-6 col-lg-4">
                             <div class="service-card">
-                                <h4 class="service-card-title">China Harbour</h4>
+                                <h4 class="service-card-title">Taijun</h4>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="service-card">
-                                <h4 class="service-card-title">Sinopec E&C Middle East Co. Ltd.</h4>
+                                <h4 class="service-card-title">Sapco</h4>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="service-card">
-                                <h4 class="service-card-title">Samsung</h4>
+                                <h4 class="service-card-title">MBL</h4>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="service-card">
-                                <h4 class="service-card-title">Hyundai Heavy Industrial Services</h4>
+                                <h4 class="service-card-title">UCC</h4>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="service-card">
-                                <h4 class="service-card-title">Nasser S. Al-Hajri Corp (NSH)</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="service-card">
-                                <h4 class="service-card-title">China Geo-Engineering Corporation (Saudi Branch)</h4>
-                            </div>
-                        </div>
+                  
                     </div>
                 </div>
             </div>
@@ -718,28 +749,28 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Scrap Metal Business</h2>
+                    <h2 class="section-title" data-translate="scrap-title">Scrap Metal Business</h2>
                     <div class="section-divider"></div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content">
-                        <p class="lead">We handle various types of scrap metal including:</p>
+                        <p class="lead" data-translate="scrap-p1">We handle various types of scrap metal including:</p>
                         <div class="row g-3 mt-3">
                             <div class="col-md-4">
                                 <div class="service-card">
-                                    <h4 class="service-card-title">Copper Scrap</h4>
+                                    <h4 class="service-card-title" data-translate="scrap-1">Copper Scrap</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="service-card">
-                                    <h4 class="service-card-title">Steel Scrap</h4>
+                                    <h4 class="service-card-title" data-translate="scrap-2">Steel Scrap</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="service-card">
-                                    <h4 class="service-card-title">Mixed Industrial Scrap</h4>
+                                    <h4 class="service-card-title" data-translate="scrap-3">Mixed Industrial Scrap</h4>
                                 </div>
                             </div>
                         </div>
@@ -754,16 +785,16 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Photo Gallery</h2>
+                    <h2 class="section-title" data-translate="gallery-title">Photo Gallery</h2>
                     <div class="section-divider"></div>
-                    <p class="section-description">Showcasing our projects and achievements</p>
+                    <p class="section-description" data-translate="gallery-desc">Showcasing our projects and achievements</p>
                 </div>
             </div>
             <div class="row g-3">
                 <!-- Gallery items - placeholder images, will be replaced with actual PDF images -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="1">
-                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Project+1" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2342.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -771,7 +802,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="2">
-                        <img src="https://via.placeholder.com/400x300/004499/ffffff?text=Project+2" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2343.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -779,7 +810,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="3">
-                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Project+3" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2344.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -787,7 +818,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="4">
-                        <img src="https://via.placeholder.com/400x300/004499/ffffff?text=Project+4" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2345.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -795,7 +826,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="5">
-                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Project+5" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2346.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -803,7 +834,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="6">
-                        <img src="https://via.placeholder.com/400x300/004499/ffffff?text=Project+6" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2347.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -811,7 +842,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="7">
-                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Project+7" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2348.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -819,7 +850,7 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="8">
-                        <img src="https://via.placeholder.com/400x300/004499/ffffff?text=Project+8" alt="Project Gallery" class="img-fluid">
+                        <img src="https://storaeall.s3.us-east-1.amazonaws.com/IMG_2349.JPG" alt="Project Gallery" class="img-fluid">
                         <div class="gallery-overlay">
                             <i class="bi bi-zoom-in"></i>
                         </div>
@@ -834,7 +865,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="galleryModalLabel">Project Gallery</h5>
+                    <h5 class="modal-title" id="galleryModalLabel" data-translate="gallery-modal-title">Project Gallery</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
@@ -849,9 +880,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="section-title">Contact Us</h2>
+                    <h2 class="section-title" data-translate="contact-title">Contact Us</h2>
                     <div class="section-divider"></div>
-                    <p class="section-description">Get in touch with us for your construction needs</p>
+                    <p class="section-description" data-translate="contact-desc">Get in touch with us for your construction needs</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -860,7 +891,7 @@
                         <div class="contact-icon">
                             <i class="bi bi-geo-alt-fill"></i>
                         </div>
-                        <h4 class="contact-card-title">Address</h4>
+                        <h4 class="contact-card-title" data-translate="contact-address-title">Address</h4>
                         <p class="contact-card-text">Al-Jubail - Kingdom of Saudi Arabia</p>
                     </div>
                 </div>
@@ -869,8 +900,8 @@
                         <div class="contact-icon">
                             <i class="bi bi-telephone-fill"></i>
                         </div>
-                        <h4 class="contact-card-title">Phone</h4>
-                        <p class="contact-card-text"><a href="tel:+966536642829">+966 00 000 0000</a></p>
+                        <h4 class="contact-card-title" data-translate="contact-phone-title">Phone</h4>
+                        <p class="contact-card-text"><a href="tel:+966536642829">+966536642829</a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -878,7 +909,7 @@
                         <div class="contact-icon">
                             <i class="bi bi-envelope-fill"></i>
                         </div>
-                        <h4 class="contact-card-title">Email</h4>
+                        <h4 class="contact-card-title" data-translate="contact-email-title">Email</h4>
                         <p class="contact-card-text"><a href="mailto:info@easterntopcompanys.com">info@easterntopcompanys.com</a></p>
                     </div>
                 </div>
@@ -887,7 +918,7 @@
                         <div class="contact-icon">
                             <i class="bi bi-globe"></i>
                         </div>
-                        <h4 class="contact-card-title">Website</h4>
+                        <h4 class="contact-card-title" data-translate="contact-website-title">Website</h4>
                         <p class="contact-card-text"><a href="http://www.easterntopcompanys.com" target="_blank">www.easterntopcompanys.com</a></p>
                     </div>
                 </div>
@@ -896,7 +927,7 @@
                         <div class="contact-icon">
                             <i class="bi bi-file-earmark-text"></i>
                         </div>
-                        <h4 class="contact-card-title">Registration</h4>
+                        <h4 class="contact-card-title" data-translate="contact-reg-title">Registration</h4>
                         <p class="contact-card-text">Commercial Reg. No: 7051448806 </p>
                     </div>
                 </div>
@@ -911,7 +942,7 @@
                 <div class="col-md-4">
                     <div class="footer-logo mb-4">
                         <h5 class="text-white mb-3">Eastern Top Companys</h5>
-                        <p class="footer-text">100% Saudi Arabia Company • Pioneering industrial and commercial construction since 1970. Registered with Ministry and Chamber of Commerce Commercial Reg. No: 7051448806 .</p>
+                        <p class="footer-text" data-translate="footer-about">100% Saudi Arabia Company • Pioneering industrial and commercial construction since 1970. Registered with Ministry and Chamber of Commerce Commercial Reg. No: 7051448806 .</p>
                     </div>
                     <div class="social-links-footer">
                         <ul class="list-unstyled mb-0 d-flex">
@@ -923,30 +954,30 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="footer-heading mb-4">QUICK LINKS</h5>
+                    <h5 class="footer-heading mb-4" data-translate="footer-quick-links">QUICK LINKS</h5>
                     <ul class="footer-links list-unstyled">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#management">Management</a></li>
-                        <li><a href="#values">Our Values</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#home" data-translate="nav-home">Home</a></li>
+                        <li><a href="#about" data-translate="nav-about">About Us</a></li>
+                        <li><a href="#management" data-translate="nav-management">Management</a></li>
+                        <li><a href="#values" data-translate="nav-values">Our Values</a></li>
+                        <li><a href="#services" data-translate="nav-services">Services</a></li>
+                        <li><a href="#gallery" data-translate="nav-gallery">Gallery</a></li>
+                        <li><a href="#contact" data-translate="nav-contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="footer-heading mb-4">SERVICES</h5>
+                    <h5 class="footer-heading mb-4" data-translate="footer-services">SERVICES</h5>
                     <ul class="footer-links list-unstyled">
-                        <li><a href="#services">Manpower Supply & Equipment Rental</a></li>
-                        <li><a href="#services">Material Supply Division</a></li>
-                        <li><a href="#services">Technical Support System</a></li>
-                        <li><a href="#services">Industrial Trading Division</a></li>
-                        <li><a href="#services">Structural Steel Fabrication</a></li>
+                        <li><a href="#services" data-translate="service-1">Manpower Supply & Equipment Rental</a></li>
+                        <li><a href="#services" data-translate="service-2">Material Supply Division</a></li>
+                        <li><a href="#services" data-translate="service-3">Technical Support System</a></li>
+                        <li><a href="#services" data-translate="service-4">Industrial Trading Division</a></li>
+                        <li><a href="#services" data-translate="service-5">Structural Steel Fabrication</a></li>
                     </ul>
-                    <h5 class="footer-heading mb-4 mt-4">CONTACT US</h5>
+                    <h5 class="footer-heading mb-4 mt-4" data-translate="footer-contact">CONTACT US</h5>
                     <ul class="footer-contact-info list-unstyled">
                         <li><i class="bi bi-geo-alt me-2"></i>Al-Jubail - Kingdom of Saudi Arabia</li>
-                        <li><i class="bi bi-telephone me-2"></i><a href="tel:+966536642829">+966 00 000 0000</a></li>
+                        <li><i class="bi bi-telephone me-2"></i><a href="tel:+966536642829">+966536642829</a></li>
                         <li><i class="bi bi-envelope me-2"></i><a href="mailto:info@easterntopcompanys.com">info@easterntopcompanys.com</a></li>
                         <li><i class="bi bi-globe me-2"></i><a href="http://www.easterntopcompanys.com" target="_blank">www.easterntopcompanys.com</a></li>
                     </ul>
@@ -955,7 +986,7 @@
             <hr class="footer-divider">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="copyright mb-0">Copyright @2025 Eastern Top Companys. All Rights Reserved.</p>
+                    <p class="copyright mb-0" data-translate="footer-copyright">Copyright @2025 Eastern Top Companys. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
